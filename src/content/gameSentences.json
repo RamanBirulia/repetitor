@@ -1,0 +1,244 @@
+{
+  "gameSentences": [
+    {
+      "id": 1,
+      "sentence": "I left my keys on ___ table in the kitchen.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because we're referring to a specific table that both speaker and listener know about.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 2,
+      "sentence": "___ book you recommended was fantastic.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because it refers to a specific book that was previously mentioned.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 3,
+      "sentence": "Could you close ___ window? It's getting cold.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because it's a specific window that both people can see or know about.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 4,
+      "sentence": "___ sun rises in the east every morning.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because there is only one sun - it's unique.",
+      "ruleId": "definite-unique",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 5,
+      "sentence": "___ President will address the nation tonight.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because there is only one President at a time in a country.",
+      "ruleId": "definite-unique",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 6,
+      "sentence": "___ Earth orbits around the sun.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because there is only one Earth - it's unique.",
+      "ruleId": "definite-unique",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 7,
+      "sentence": "This is ___ best pizza I've ever had.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives like 'best' because they describe the ultimate example.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 8,
+      "sentence": "She is ___ tallest person in our class.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives like 'tallest' - there can only be one tallest person.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 9,
+      "sentence": "That was ___ most difficult exam ever.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives like 'most difficult' to indicate the extreme example.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 10,
+      "sentence": "I saw ___ interesting movie last night.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'interesting' starts with a vowel sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 11,
+      "sentence": "She bought ___ new car yesterday.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' when mentioning something for the first time. Use 'a' because 'new' starts with a consonant sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 12,
+      "sentence": "There's ___ cat sitting on the fence.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' when introducing something new to the conversation. Use 'a' because 'cat' starts with a consonant sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 13,
+      "sentence": "My sister is ___ nurse at the local hospital.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' with professions. Use 'a' because 'nurse' starts with a consonant sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 14,
+      "sentence": "He wants to become ___ architect.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions. Use 'an' because 'architect' starts with a vowel sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 15,
+      "sentence": "She works as ___ teacher in elementary school.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' with professions. Use 'a' because 'teacher' starts with a consonant sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 16,
+      "sentence": "___ water is essential for all living things.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when making general statements about uncountable nouns like 'water'.",
+      "ruleId": "no-article-general",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 17,
+      "sentence": "___ dogs are known for their loyalty.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when making general statements about plural countable nouns like 'dogs'.",
+      "ruleId": "no-article-general",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 18,
+      "sentence": "___ music has the power to heal emotions.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when making general statements about uncountable nouns like 'music'.",
+      "ruleId": "no-article-general",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 19,
+      "sentence": "___ London is the capital of England.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed with most city names - they are proper nouns.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 20,
+      "sentence": "___ Microsoft was founded by Bill Gates.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed with company names - they are proper nouns.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 21,
+      "sentence": "___ Sarah is studying at Harvard University.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed with people's names - they are proper nouns.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 22,
+      "sentence": "___ Amazon River is the longest river in South America.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with rivers - they are specific geographic features.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 23,
+      "sentence": "___ Pacific Ocean covers about one-third of Earth's surface.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with oceans - they are specific geographic features.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 24,
+      "sentence": "___ Himalayas contain the world's highest peaks.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with mountain ranges - they are specific geographic features.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 25,
+      "sentence": "Could you pass me ___ salt, please?",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' because it refers to the specific salt container on the table that both people can see.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 26,
+      "sentence": "I need to buy ___ umbrella before it rains.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'umbrella' starts with a vowel sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 27,
+      "sentence": "___ coffee is popular all over the world.",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when making general statements about uncountable nouns like 'coffee'.",
+      "ruleId": "no-article-general",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 28,
+      "sentence": "This is ___ worst weather we've had this year.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives like 'worst' - it describes the most extreme example.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 29,
+      "sentence": "My brother is ___ engineer at a tech company.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions. Use 'an' because 'engineer' starts with a vowel sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 30,
+      "sentence": "___ Mediterranean Sea is between Europe and Africa.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with seas - they are specific geographic features.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "appConfig": {
+    "name": "Repetitor",
+    "version": "1.0.0",
+    "description": "Gamified English learning platform",
+    "supportedLanguages": ["en"],
+    "defaultLanguage": "en"
+  },
+  "gameConfig": {
+    "articleGame": {
+      "name": "Article Master",
+      "description": "Practice English articles (a, an, the) with interactive card game",
+      "icon": "📚",
+      "difficulty": "Beginner",
+      "enabled": true,
+      "defaultQuestionCount": 10,
+      "maxQuestionCount": 30,
+      "scoring": {
+        "firstAttemptPoints": 10,
+        "secondAttemptPoints": 5,
+        "maxAttempts": 2
+      },
+      "timing": {
+        "correctAnswerDisplayTime": 4000,
+        "incorrectAnswerDisplayTime": 3000,
+        "explanationReadingTime": 2000,
+        "autoAdvanceEnabled": true
+      },
+      "answerOptions": [
+        {
+          "value": "a/an",
+          "label": "A / AN",
+          "description": "Indefinite article for singular countable nouns"
+        },
+        {
+          "value": "the",
+          "label": "THE",
+          "description": "Definite article for specific items"
+        },
+        {
+          "value": "nothing",
+          "label": "NO ARTICLE",
+          "description": "Zero article for general statements and proper nouns"
+        }
+      ],
+      "learningFlow": {
+        "showSkipButton": true,
+        "pauseOnIncorrect": true,
+        "reinforcementMessages": true,
+        "extendedFeedback": true
+      }
+    },
+    "upcomingGames": [
+      {
+        "id": "verb-tenses",
+        "name": "Verb Tenses",
+        "description": "Master English verb tenses with fun exercises",
+        "icon": "⏰",
+        "difficulty": "Coming Soon",
+        "enabled": false
+      },
+      {
+        "id": "prepositions",
+        "name": "Prepositions",
+        "description": "Learn prepositions through interactive games",
+        "icon": "📍",
+        "difficulty": "Coming Soon",
+        "enabled": false
+      }
+    ]
+  },
+  "contentCategories": {
+    "articleRules": {
+      "definite": {
+        "name": "The (Definite Article)",
+        "icon": "🎯",
+        "color": "blue",
+        "description": "Rules for using 'the' with specific and unique items"
+      },
+      "indefinite": {
+        "name": "A/An (Indefinite Articles)",
+        "icon": "🔤",
+        "color": "green",
+        "description": "Rules for using 'a' and 'an' with non-specific items"
+      },
+      "zero": {
+        "name": "No Article",
+        "icon": "∅",
+        "color": "gray",
+        "description": "Rules for when not to use articles"
+      }
+    }
+  },
+  "difficultyLevels": {
+    "beginner": {
+      "name": "Beginner",
+      "color": "green",
+      "description": "Basic concepts and common usage patterns",
+      "order": 1
+    },
+    "intermediate": {
+      "name": "Intermediate",
+      "color": "yellow",
+      "description": "More complex rules and exceptions",
+      "order": 2
+    },
+    "advanced": {
+      "name": "Advanced",
+      "color": "red",
+      "description": "Complex usage and specialized contexts",
+      "order": 3
+    }
+  },
+  "uiConfig": {
+    "theme": {
+      "primaryColor": "blue",
+      "accentColor": "purple",
+      "successColor": "green",
+      "warningColor": "yellow",
+      "errorColor": "red"
+    },
+    "layout": {
+      "maxContentWidth": "4xl",
+      "defaultPadding": "4",
+      "borderRadius": "lg"
+    },
+    "animations": {
+      "enableTransitions": true,
+      "transitionDuration": "200ms",
+      "enableGameAnimations": true
+    }
+  },
+  "features": {
+    "search": {
+      "enabled": true,
+      "placeholder": "Search rules...",
+      "minCharacters": 1
+    },
+    "filtering": {
+      "enabled": true,
+      "defaultCategory": "all",
+      "showStatistics": true
+    },
+    "directLinking": {
+      "enabled": true,
+      "scrollBehavior": "smooth",
+      "highlightDuration": 3000
+    },
+    "progressTracking": {
+      "enabled": true,
+      "showProgressBar": true,
+      "showScore": true
+    }
+  },
+  "content": {
+    "rulesPageTitle": "English Article Rules",
+    "rulesPageDescription": "Master the usage of \"a\", \"an\", \"the\", and when to use no article at all. Click on any rule card to see detailed explanations and examples.",
+    "gamePageTitle": "Article Master Game",
+    "homePageTitle": "Repetitor",
+    "homePageSubtitle": "Master English grammar through gamified learning. Practice, play, and progress with comprehensive rule guides!",
+    "footerText": "© 2024 Repetitor - English Learning Game. Made with ❤️ for language learners."
+  },
+  "metadata": {
+    "lastUpdated": "2024-01-01",
+    "contentVersion": "1.0.0",
+    "totalRules": 8,
+    "totalSentences": 30,
+    "supportedArticles": ["a", "an", "the", "nothing"]
+  }
+}

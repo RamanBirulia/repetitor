@@ -1,0 +1,110 @@
+{
+  "articleRules": [
+    {
+      "id": "definite-specific",
+      "title": "The Definite Article \"THE\" - Specific Items",
+      "category": "definite",
+      "description": "Use \"the\" when referring to something specific that both the speaker and listener know about.",
+      "examples": [
+        "The book on the table is mine.",
+        "The car in the garage needs repair.",
+        "The teacher you mentioned is very kind."
+      ],
+      "explanation": "When we use \"the,\" we assume the listener knows exactly which item we're talking about. This could be because it was mentioned before, is visible, or is unique in the context.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-unique",
+      "title": "The Definite Article \"THE\" - Unique Items",
+      "category": "definite",
+      "description": "Use \"the\" with things that are unique or one of a kind.",
+      "examples": [
+        "The sun is shining brightly.",
+        "The moon looks beautiful tonight.",
+        "The President announced new policies."
+      ],
+      "explanation": "Some things are naturally unique - there's only one sun, one moon, one president of a country at a time. These always take \"the.\"",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-superlatives",
+      "title": "The Definite Article \"THE\" - Superlatives",
+      "category": "definite",
+      "description": "Always use \"the\" before superlative adjectives.",
+      "examples": [
+        "She is the smartest student in class.",
+        "This is the most expensive car.",
+        "He ran the fastest in the race."
+      ],
+      "explanation": "Superlatives (best, worst, most beautiful, etc.) describe the extreme of a quality, making the noun unique, so they always need \"the.\"",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "indefinite-first-mention",
+      "title": "Indefinite Articles \"A/AN\" - First Mention",
+      "category": "indefinite",
+      "description": "Use \"a\" or \"an\" when mentioning something for the first time or when it doesn't matter which specific one.",
+      "examples": [
+        "I saw a dog in the park. (consonant sound)",
+        "She bought an apple at the store. (vowel sound)",
+        "He needs a new computer. (consonant sound)",
+        "It was an honest mistake. (vowel sound - silent h)"
+      ],
+      "explanation": "When introducing something new to the conversation or when any example of that thing will do, we use \"a\" or \"an.\" Use \"a\" before consonant sounds and \"an\" before vowel sounds. Remember: it's about the sound, not the letter - \"an hour\" (vowel sound) vs \"a university\" (consonant sound).",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "indefinite-jobs-professions",
+      "title": "Indefinite Articles \"A/AN\" - Jobs and Professions",
+      "category": "indefinite",
+      "description": "Use \"a\" or \"an\" when talking about someone's job or profession.",
+      "examples": [
+        "She is a teacher. (consonant sound)",
+        "He wants to become an engineer. (vowel sound)",
+        "My father is a doctor. (consonant sound)",
+        "I am an artist. (vowel sound)"
+      ],
+      "explanation": "When describing what someone does for work, we use the indefinite article because there are many people with that profession. Use \"a\" before consonant sounds and \"an\" before vowel sounds.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-general",
+      "title": "No Article - General Statements",
+      "category": "zero",
+      "description": "Don't use articles when making general statements about uncountable nouns or plural countable nouns.",
+      "examples": [
+        "Water is essential for life.",
+        "Dogs are loyal animals.",
+        "Music makes people happy."
+      ],
+      "explanation": "When talking about things in general (not specific examples), we often don't use articles. This applies to uncountable nouns (water, music) and plural countable nouns (dogs, people).",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "no-article-proper-nouns",
+      "title": "No Article - Proper Nouns",
+      "category": "zero",
+      "description": "Most proper nouns (names of people, places, etc.) don't use articles.",
+      "examples": [
+        "London is a beautiful city.",
+        "Mary works at Microsoft.",
+        "I study at Harvard University."
+      ],
+      "explanation": "Names of people, most cities, countries, companies, and universities don't need articles because they are already specific by nature.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-geographic",
+      "title": "The Definite Article \"THE\" - Geographic Features",
+      "category": "definite",
+      "description": "Use \"the\" with oceans, seas, rivers, mountain ranges, and groups of islands.",
+      "examples": [
+        "The Pacific Ocean is huge.",
+        "The Nile River flows through Egypt.",
+        "The Himalayas are the highest mountains."
+      ],
+      "explanation": "Certain geographic features traditionally take \"the,\" especially bodies of water, mountain ranges, and island groups. However, individual mountains and lakes usually don't.",
+      "difficulty": "advanced"
+    }
+  ]
+}
