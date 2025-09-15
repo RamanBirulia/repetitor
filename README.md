@@ -39,11 +39,51 @@ A React-based web application for learning English grammar through interactive g
 
 ## Getting Started
 
-### Prerequisites
+You can run this application in two ways: using Docker (recommended for easy deployment) or traditional Node.js development.
+
+### 🐳 Option 1: Docker (Recommended)
+
+#### Prerequisites
+- Docker Engine (version 20.10 or later)
+- Docker Compose (version 2.0 or later)
+
+#### Quick Start with Docker
+```bash
+# Clone the repository
+git clone <repository-url>
+cd repetitor
+
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or run in background
+docker-compose up -d --build
+```
+
+#### Using the Management Script
+```bash
+# Build and run
+./docker-run.sh run
+
+# Run development version with hot reload
+./docker-run.sh dev
+
+# Stop the application
+./docker-run.sh stop
+
+# View logs
+./docker-run.sh logs
+```
+
+The application will be available at `http://localhost:3000`
+
+### 💻 Option 2: Traditional Node.js Development
+
+#### Prerequisites
 - Node.js (version 14 or higher)
 - npm or yarn package manager
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 ```bash
@@ -53,7 +93,7 @@ cd repetitor
 
 2. Install dependencies:
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 3. Start the development server:
@@ -63,12 +103,62 @@ npm start
 
 4. Open your browser and navigate to `http://localhost:3000`
 
-### Available Scripts
+#### Available Scripts
 
 - `npm start` - Runs the app in development mode
 - `npm run build` - Builds the app for production
 - `npm test` - Launches the test runner
 - `npm run eject` - Ejects from Create React App (irreversible)
+
+## Docker Deployment
+
+### 🚀 Quick Docker Deployment
+
+The application includes comprehensive Docker support for easy deployment and sharing.
+
+#### Features
+- **Multi-stage build**: Optimized ~25MB production image
+- **Nginx serving**: High-performance static file serving
+- **Health checks**: Automatic container monitoring
+- **Development support**: Hot reload with volume mounting
+- **Security**: Production-ready with security headers
+
+#### Quick Commands
+```bash
+# Production deployment
+docker-compose up -d --build
+
+# Development with hot reload
+docker-compose --profile dev up
+
+# Using management script
+./docker-run.sh run          # Production
+./docker-run.sh dev          # Development
+./docker-run.sh logs         # View logs
+```
+
+#### Manual Docker Commands
+```bash
+# Build image
+docker build -t repetitor .
+
+# Run container
+docker run -d --name repetitor-app -p 3000:80 repetitor
+
+# Health check
+curl http://localhost:3000/health
+```
+
+For complete Docker documentation, see [DOCKER.md](DOCKER.md)
+
+#### Docker Scripts
+- `./docker-run.sh build` - Build Docker image
+- `./docker-run.sh run` - Build and run production container
+- `./docker-run.sh dev` - Run development container with hot reload
+- `./docker-run.sh stop` - Stop running container
+- `./docker-run.sh logs` - View container logs
+- `./docker-run.sh clean` - Remove container and image
+- `./test-docker.sh` - Run comprehensive Docker tests
 
 ## Project Structure
 
