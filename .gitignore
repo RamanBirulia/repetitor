@@ -99,3 +99,16 @@ $RECYCLE.BIN/
 
 # Linux
 *~
+
+# Cloudflare Tunnel
+# Keep credentials secure - never commit these
+.cloudflared/
+*.json
+cloudflared.log
+tunnel-*.log
+
+# Tunnel configuration backups
+tunnel-backup/
+
+# Local tunnel overrides
+cloudflare-tunnel.local.yml

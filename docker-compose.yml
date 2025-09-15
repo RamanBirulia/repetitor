@@ -1,10 +1,9 @@
-version: '3.8'
+version: "3.8"
 
 services:
   repetitor:
     build: .
-    ports:
-      - "3000:80"
+    container_name: repetitor-app
     restart: unless-stopped
     environment:
       - NODE_ENV=production
@@ -14,12 +13,37 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+    networks:
+      - tunnel-network
 
-  # Development service (optional)
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: birulia-tunnel
+    restart: unless-stopped
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflare-tunnel.yml:/etc/cloudflared/config.yml:ro
+      - ~/.cloudflared:/root/.cloudflared:ro
+    depends_on:
+      repetitor:
+        condition: service_healthy
+    networks:
+      - tunnel-network
+    environment:
+      - TUNNEL_METRICS=0.0.0.0:9090
+    healthcheck:
+      test: ["CMD", "cloudflared", "tunnel", "info", "birulia"]
+      interval: 60s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+
+  # Development service (optional - use with --profile dev)
   repetitor-dev:
     build:
       context: .
       target: builder
+    container_name: repetitor-dev
     ports:
       - "3001:3000"
     volumes:
@@ -31,3 +55,17 @@ services:
       - CHOKIDAR_USEPOLLING=true
     profiles:
       - dev
+    networks:
+      - tunnel-network
+
+networks:
+  tunnel-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Optional: Volume for persistent tunnel data
+volumes:
+  cloudflared-data:
+    driver: local

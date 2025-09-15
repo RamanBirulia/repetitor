@@ -1,0 +1,52 @@
+tunnel: birulia
+credentials-file: /root/.cloudflared/birulia.json
+
+ingress:
+  # Route for the main English learning application
+  - hostname: birulia.your-domain.com
+    service: http://repetitor:80
+    originRequest:
+      httpHostHeader: birulia.your-domain.com
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      tcpKeepAlive: 30s
+      keepAliveConnections: 1024
+      keepAliveTimeout: 1m30s
+
+  # Health check endpoint (optional)
+  - hostname: health.birulia.your-domain.com
+    service: http://repetitor:80
+    path: /health
+
+  # Catch-all rule (required)
+  - service: http_status:404
+
+# Optional: Enable additional features
+warp-routing:
+  enabled: false
+
+# Logging configuration
+loglevel: info
+
+# Metrics (optional)
+metrics: 0.0.0.0:9090
+
+# Auto-update
+autoupdate-freq: 24h
+
+# Connection settings
+protocol: auto
+retries: 5
+grace-period: 30s
+
+# HTTP/2 settings
+http2-origin: true
+compression: gzip
+
+# Security headers
+originRequest:
+  noHappyEyeballs: false
+  keepAliveTimeout: 1m30s
+  tcpKeepAlive: 30s
+  connectTimeout: 30s
+  tlsTimeout: 30s
