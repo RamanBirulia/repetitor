@@ -9,17 +9,23 @@ Get your English Learning Web Game online in 5 minutes with Cloudflare Tunnel!
 - Cloudflare account with a domain
 - `cloudflared` installed ([install guide](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/))
 
-### Step 1: Authenticate (30 seconds)
+### 🚨 Fix Certificate Error First
+If you see "error parsing tunnel ID: Error locating origin cert", run:
 ```bash
-cloudflared tunnel login
+./fix-tunnel-auth.sh
 ```
-This opens your browser - just click "Authorize".
+This will automatically fix authentication issues.
 
-### Step 2: Create Tunnel (if not done already)
+### Step 1: Fix Authentication Issues
 ```bash
-# Only if tunnel "birulia" doesn't exist yet
-cloudflared tunnel create birulia
+# Run the fix script to handle certificate issues
+./fix-tunnel-auth.sh
 ```
+This script will:
+- Check for origin certificate (`cert.pem`)
+- Authenticate with Cloudflare if needed
+- Create tunnel "birulia" if it doesn't exist
+- Validate your configuration
 
 ### Step 3: Configure DNS (2 minutes)
 In your Cloudflare dashboard:
@@ -72,6 +78,11 @@ ingress:
 
 ## 🆘 Quick Troubleshooting
 
+### "Origin cert error" or "tunnel ID parsing error"
+```bash
+./fix-tunnel-auth.sh
+```
+
 ### "502 Bad Gateway"
 ```bash
 ./setup-tunnel.sh restart
@@ -88,6 +99,10 @@ cloudflared tunnel list
 
 # Check credentials
 ls ~/.cloudflared/birulia.json
+ls ~/.cloudflared/cert.pem
+
+# Fix authentication issues
+./fix-tunnel-auth.sh
 
 # Restart everything
 ./setup-tunnel.sh stop

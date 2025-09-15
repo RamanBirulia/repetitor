@@ -14,7 +14,7 @@ PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
 # Configuration
-TUNNEL_NAME="birulia"
+TUNNEL_NAME="20cf6478-7ced-4371-857d-e0017b6818bf"
 COMPOSE_FILE="docker-compose.yml"
 TUNNEL_CONFIG="cloudflare-tunnel.yml"
 
@@ -98,12 +98,27 @@ check_docker() {
 check_tunnel_auth() {
     print_info "Checking tunnel authentication..."
 
-    if [ ! -f ~/.cloudflared/$TUNNEL_NAME.json ]; then
-        print_warning "Tunnel credentials not found!"
-        print_info "Please authenticate with Cloudflare:"
+    # Check for origin certificate
+    if [ ! -f ~/.cloudflared/cert.pem ]; then
+        print_error "Origin certificate not found!"
+        print_info "Please authenticate with Cloudflare first:"
         echo ""
         echo "  1. Run: cloudflared tunnel login"
         echo "  2. Complete authentication in browser"
+        echo "  3. This will create ~/.cloudflared/cert.pem"
+        echo "  4. Run this script again"
+        exit 1
+    else
+        print_success "Origin certificate found!"
+    fi
+
+    # Check for tunnel credentials
+    if [ ! -f ~/.cloudflared/$TUNNEL_NAME.json ]; then
+        print_warning "Tunnel credentials not found!"
+        print_info "Please create the tunnel if it doesn't exist:"
+        echo ""
+        echo "  1. Create tunnel: cloudflared tunnel create $TUNNEL_NAME"
+        echo "  2. This will create ~/.cloudflared/$TUNNEL_NAME.json"
         echo "  3. Run this script again"
         exit 1
     else
@@ -119,43 +134,97 @@ setup_tunnel() {
     check_cloudflared
     check_docker
 
-    # Check if tunnel exists
-    print_info "Checking if tunnel '$TUNNEL_NAME' exists..."
-    if cloudflared tunnel list | grep -q "$TUNNEL_NAME"; then
-        print_success "Tunnel '$TUNNEL_NAME' already exists!"
+    # Interactive setup
+    print_info "Let's set up your tunnel step by step..."
+    echo ""
+
+    # Step 1: Check authentication
+    print_info "Step 1: Checking Cloudflare authentication..."
+    if [ ! -f ~/.cloudflared/cert.pem ]; then
+        print_warning "You need to authenticate with Cloudflare first."
+        read -p "Run 'cloudflared tunnel login' now? (y/N): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            cloudflared tunnel login
+            if [ ! -f ~/.cloudflared/cert.pem ]; then
+                print_error "Authentication failed or cancelled."
+                exit 1
+            fi
+            print_success "Authentication successful!"
+        else
+            print_info "Please run 'cloudflared tunnel login' manually and try again."
+            exit 1
+        fi
     else
-        print_error "Tunnel '$TUNNEL_NAME' not found!"
-        print_info "Please create the tunnel first:"
-        echo ""
-        echo "  1. Login to Cloudflare: cloudflared tunnel login"
-        echo "  2. Create tunnel: cloudflared tunnel create $TUNNEL_NAME"
-        echo "  3. Configure DNS in Cloudflare dashboard"
-        echo "  4. Run this script again"
-        exit 1
+        print_success "Already authenticated!"
     fi
 
-    check_tunnel_auth
+    # Step 2: Check if tunnel exists
+    print_info "Step 2: Checking if tunnel '$TUNNEL_NAME' exists..."
+    if cloudflared tunnel list | grep -q "$TUNNEL_NAME"; then
+        print_success "Tunnel '$TUNNEL_NAME' already exists!"
+        TUNNEL_ID=$(cloudflared tunnel list | grep "$TUNNEL_NAME" | awk '{print $1}')
+    else
+        print_warning "Tunnel '$TUNNEL_NAME' not found."
+        read -p "Create tunnel '$TUNNEL_NAME' now? (y/N): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            cloudflared tunnel create $TUNNEL_NAME
+            if [ $? -eq 0 ]; then
+                print_success "Tunnel created successfully!"
+                TUNNEL_ID=$(cloudflared tunnel list | grep "$TUNNEL_NAME" | awk '{print $1}')
+            else
+                print_error "Failed to create tunnel."
+                exit 1
+            fi
+        else
+            print_info "Please create the tunnel manually:"
+            echo "  cloudflared tunnel create $TUNNEL_NAME"
+            exit 1
+        fi
+    fi
 
-    # Get tunnel domain
-    print_info "Getting tunnel domain information..."
-    TUNNEL_ID=$(cloudflared tunnel list | grep "$TUNNEL_NAME" | awk '{print $1}')
     print_success "Tunnel ID: $TUNNEL_ID"
 
-    # Update configuration
-    print_info "Configuration file: $TUNNEL_CONFIG"
+    # Step 3: Check credentials
+    check_tunnel_auth
+
+    # Step 4: Configuration
+    print_info "Step 3: Checking tunnel configuration..."
     if [ -f "$TUNNEL_CONFIG" ]; then
         print_success "Tunnel configuration found!"
-        print_warning "Please update the domain in $TUNNEL_CONFIG if needed"
+        print_info "Current configuration:"
+        grep -E "hostname:|service:" $TUNNEL_CONFIG | head -2
+        echo ""
+        print_warning "Make sure to update the hostname in $TUNNEL_CONFIG with your actual domain"
     else
         print_error "Tunnel configuration not found!"
         exit 1
     fi
 
-    print_success "Tunnel setup complete!"
+    # Step 4: DNS instructions
+    echo ""
+    print_info "Step 4: DNS Configuration Required"
+    print_warning "You need to add DNS records in your Cloudflare dashboard:"
+    echo ""
+    echo "  Record Type: CNAME"
+    echo "  Name: app (or your preferred subdomain)"
+    echo "  Target: $TUNNEL_ID.cfargotunnel.com"
+    echo ""
+    print_info "Example: app.yourdomain.com -> $TUNNEL_ID.cfargotunnel.com"
+    echo ""
+
+    read -p "Have you configured the DNS record? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        print_info "Please configure DNS first, then run: $0 start"
+        exit 0
+    fi
+
+    print_success "Setup complete!"
     print_info "Next steps:"
-    echo "  1. Update domain in $TUNNEL_CONFIG"
-    echo "  2. Configure DNS in Cloudflare dashboard"
-    echo "  3. Run: $0 start"
+    echo "  1. Update hostname in $TUNNEL_CONFIG if needed"
+    echo "  2. Run: $0 start"
 }
 
 # Start services
@@ -166,14 +235,14 @@ start_services() {
     check_tunnel_auth
 
     print_info "Starting services with Docker Compose..."
-    docker-compose up -d --build
+    docker compose up -d --build
 
     # Wait for services to be ready
     print_info "Waiting for services to start..."
     sleep 10
 
     # Check service status
-    if docker-compose ps | grep -q "Up"; then
+    if docker compose ps | grep -q "Up"; then
         print_success "Services started successfully!"
         show_status
     else
@@ -188,7 +257,7 @@ stop_services() {
     print_header "Stopping Repetitor and Cloudflare Tunnel"
 
     print_info "Stopping Docker Compose services..."
-    docker-compose down
+    docker compose down
 
     print_success "Services stopped successfully!"
 }
@@ -199,7 +268,7 @@ show_status() {
 
     echo ""
     print_info "Docker Compose Services:"
-    docker-compose ps
+    docker compose ps
 
     echo ""
     print_info "Tunnel Information:"
@@ -212,7 +281,7 @@ show_status() {
 
     echo ""
     print_info "Application Health:"
-    if docker-compose ps | grep "repetitor-app" | grep -q "Up"; then
+    if docker compose ps | grep "repetitor-app" | grep -q "Up"; then
         if curl -f http://localhost/health --max-time 5 --silent > /dev/null 2>&1; then
             print_success "Application is healthy!"
         else
@@ -244,16 +313,16 @@ show_logs() {
 
     case $choice in
         1)
-            docker-compose logs repetitor
+            docker compose logs repetitor
             ;;
         2)
-            docker-compose logs cloudflared
+            docker compose logs cloudflared
             ;;
         3)
-            docker-compose logs
+            docker compose logs
             ;;
         4)
-            docker-compose logs -f
+            docker compose logs -f
             ;;
         *)
             print_error "Invalid choice"
@@ -265,24 +334,74 @@ show_logs() {
 test_connectivity() {
     print_header "Testing Tunnel Connectivity"
 
-    print_info "Checking local application..."
-    if curl -f http://localhost/health --max-time 10 --silent > /dev/null 2>&1; then
-        print_success "Local application responding!"
+    # Test 1: Check credentials and certificates
+    print_info "Test 1: Checking credentials and certificates..."
+    if [ -f ~/.cloudflared/cert.pem ]; then
+        print_success "Origin certificate found!"
     else
-        print_warning "Local application not responding"
+        print_error "Origin certificate missing! Run: cloudflared tunnel login"
     fi
 
-    print_info "Checking tunnel status..."
+    if [ -f ~/.cloudflared/$TUNNEL_NAME.json ]; then
+        print_success "Tunnel credentials found!"
+    else
+        print_error "Tunnel credentials missing! Run: cloudflared tunnel create $TUNNEL_NAME"
+    fi
+
+    # Test 2: Validate configuration
+    print_info "Test 2: Validating tunnel configuration..."
+    if cloudflared tunnel ingress validate $TUNNEL_CONFIG 2>/dev/null; then
+        print_success "Configuration is valid!"
+    else
+        print_error "Configuration validation failed!"
+        print_info "Check your $TUNNEL_CONFIG file"
+    fi
+
+    # Test 3: Check local application
+    print_info "Test 3: Checking local application..."
+    if docker-compose ps | grep "repetitor-app" | grep -q "Up"; then
+        if curl -f http://localhost/health --max-time 10 --silent > /dev/null 2>&1; then
+            print_success "Local application is healthy!"
+        else
+            print_warning "Application container running but not responding"
+        fi
+    else
+        print_warning "Application container not running"
+    fi
+
+    # Test 4: Check tunnel container
+    print_info "Test 4: Checking tunnel container..."
     if docker-compose ps | grep "birulia-tunnel" | grep -q "Up"; then
         print_success "Tunnel container is running!"
     else
         print_warning "Tunnel container not running"
     fi
 
-    print_info "Tunnel info:"
-    cloudflared tunnel info $TUNNEL_NAME 2>/dev/null || print_warning "Could not get tunnel info"
+    # Test 5: Tunnel connectivity
+    print_info "Test 5: Testing tunnel connectivity..."
+    if cloudflared tunnel info $TUNNEL_NAME 2>/dev/null; then
+        print_success "Tunnel is accessible!"
+    else
+        print_warning "Could not get tunnel info - check authentication"
+    fi
 
-    print_info "Please test your public domain manually in a browser"
+    # Test 6: DNS resolution (if domain configured)
+    print_info "Test 6: DNS and public access..."
+    CONFIGURED_DOMAIN=$(grep -E "^\s*- hostname:" $TUNNEL_CONFIG | head -1 | awk '{print $3}')
+    if [ "$CONFIGURED_DOMAIN" != "app.your-domain.com" ]; then
+        print_info "Testing DNS resolution for: $CONFIGURED_DOMAIN"
+        if nslookup $CONFIGURED_DOMAIN >/dev/null 2>&1; then
+            print_success "DNS resolution working!"
+            print_info "Try accessing: https://$CONFIGURED_DOMAIN"
+        else
+            print_warning "DNS not resolving - check your Cloudflare DNS records"
+        fi
+    else
+        print_warning "Default domain configured - please update $TUNNEL_CONFIG with your real domain"
+    fi
+
+    echo ""
+    print_info "Summary: Check the results above and fix any issues before proceeding."
 }
 
 # Restart tunnel
@@ -290,11 +409,11 @@ restart_tunnel() {
     print_header "Restarting Cloudflare Tunnel"
 
     print_info "Restarting tunnel service..."
-    docker-compose restart cloudflared
+    docker compose restart cloudflared
 
     sleep 5
 
-    if docker-compose ps | grep "birulia-tunnel" | grep -q "Up"; then
+    if docker compose ps | grep "birulia-tunnel" | grep -q "Up"; then
         print_success "Tunnel restarted successfully!"
     else
         print_error "Failed to restart tunnel"
@@ -311,7 +430,7 @@ clean_up() {
 
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         print_info "Stopping and removing containers..."
-        docker-compose down --volumes --remove-orphans
+        docker compose down --volumes --remove-orphans
 
         print_info "Removing Docker images..."
         docker rmi repetitor birulia-tunnel 2>/dev/null || true

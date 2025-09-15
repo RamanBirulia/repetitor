@@ -23,7 +23,8 @@ services:
     command: tunnel --config /etc/cloudflared/config.yml run
     volumes:
       - ./cloudflare-tunnel.yml:/etc/cloudflared/config.yml:ro
-      - ~/.cloudflared:/root/.cloudflared:ro
+      - ~/.cloudflared/birulia.json:/etc/cloudflared/birulia.json:ro
+      - ~/.cloudflared/cert.pem:/etc/cloudflared/cert.pem:ro
     depends_on:
       repetitor:
         condition: service_healthy

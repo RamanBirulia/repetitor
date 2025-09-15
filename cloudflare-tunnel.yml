@@ -1,12 +1,15 @@
 tunnel: birulia
-credentials-file: /root/.cloudflared/birulia.json
+credentials-file: /etc/cloudflared/birulia.json
+
+# Origin certificate - required for authentication
+origincert: /etc/cloudflared/cert.pem
 
 ingress:
   # Route for the main English learning application
-  - hostname: birulia.your-domain.com
+  - hostname: app.birulia.eu
     service: http://repetitor:80
     originRequest:
-      httpHostHeader: birulia.your-domain.com
+      httpHostHeader: app.birulia.eu
       connectTimeout: 30s
       tlsTimeout: 30s
       tcpKeepAlive: 30s
@@ -14,7 +17,7 @@ ingress:
       keepAliveTimeout: 1m30s
 
   # Health check endpoint (optional)
-  - hostname: health.birulia.your-domain.com
+  - hostname: health.app.birulia.eu
     service: http://repetitor:80
     path: /health
 
