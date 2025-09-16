@@ -45,12 +45,12 @@
       "category": "indefinite",
       "description": "Use \"a\" or \"an\" when mentioning something for the first time or when it doesn't matter which specific one.",
       "examples": [
-        "I saw a dog in the park. (consonant sound)",
-        "She bought an apple at the store. (vowel sound)",
-        "He needs a new computer. (consonant sound)",
-        "It was an honest mistake. (vowel sound - silent h)"
+        "I saw a dog in the park.",
+        "She bought an apple at the store.",
+        "He needs a new computer.",
+        "It was an honest mistake."
       ],
-      "explanation": "When introducing something new to the conversation or when any example of that thing will do, we use \"a\" or \"an.\" Use \"a\" before consonant sounds and \"an\" before vowel sounds. Remember: it's about the sound, not the letter - \"an hour\" (vowel sound) vs \"a university\" (consonant sound).",
+      "explanation": "When introducing something new to the conversation or when any example of that thing will do, we use \"a\" or \"an.\" Use \"a\" before consonant sounds and \"an\" before vowel sounds. Remember: it's about the sound, not the letter - \"an hour\" vs \"a university.\"",
       "difficulty": "beginner"
     },
     {
@@ -59,10 +59,10 @@
       "category": "indefinite",
       "description": "Use \"a\" or \"an\" when talking about someone's job or profession.",
       "examples": [
-        "She is a teacher. (consonant sound)",
-        "He wants to become an engineer. (vowel sound)",
-        "My father is a doctor. (consonant sound)",
-        "I am an artist. (vowel sound)"
+        "She is a teacher.",
+        "He wants to become an engineer.",
+        "My father is a doctor.",
+        "I am an artist."
       ],
       "explanation": "When describing what someone does for work, we use the indefinite article because there are many people with that profession. Use \"a\" before consonant sounds and \"an\" before vowel sounds.",
       "difficulty": "beginner"
@@ -105,6 +105,121 @@
       ],
       "explanation": "Certain geographic features traditionally take \"the,\" especially bodies of water, mountain ranges, and island groups. However, individual mountains and lakes usually don't.",
       "difficulty": "advanced"
+    },
+    {
+      "id": "definite-second-mention",
+      "title": "Definite Article \"THE\" - Second Mention",
+      "category": "definite",
+      "description": "Use 'the' when referring back to something already introduced with 'a' or 'an.'",
+      "examples": [
+        "I saw a man outside. The man was wearing a hat.",
+        "She bought a book. The book was expensive."
+      ],
+      "explanation": "First mention = 'a/an' because it’s new. Second mention = 'the' because it’s now specific and known to both speaker and listener.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-institutions",
+      "title": "No Article - Institutions and Common Places",
+      "category": "zero",
+      "description": "Don't use articles with certain institutions when talking about their main function.",
+      "examples": [
+        "She’s in hospital. (as a patient)",
+        "He’s at school. (as a student)",
+        "They go to bed early."
+      ],
+      "explanation": "When the institution is being used for its primary purpose (e.g., hospital = medical care, school = education, bed = sleeping), no article is used. If you talk about the building itself, you need 'the': 'I went to the hospital to visit a friend.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-adjectives-groups",
+      "title": "The Definite Article \"THE\" - Groups with Adjectives",
+      "category": "definite",
+      "description": "Use 'the' before adjectives to represent a whole group of people.",
+      "examples": [
+        "The poor need support.",
+        "The elderly require special care.",
+        "The unemployed are struggling."
+      ],
+      "explanation": "The + adjective can represent an entire social group (rich, poor, young, old, etc.).",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-inventions-instruments-species",
+      "title": "The Definite Article \"THE\" - Inventions, Instruments, Species",
+      "category": "definite",
+      "description": "Use 'the' with inventions, musical instruments, and species in general statements.",
+      "examples": [
+        "The telephone changed the world.",
+        "She plays the piano.",
+        "The tiger is an endangered species."
+      ],
+      "explanation": "We use 'the' for inventions (the internet, the steam engine), for musical instruments, and for species as a whole.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "indefinite-one",
+      "title": "Indefinite Articles \"A/AN\" - Meaning One",
+      "category": "indefinite",
+      "description": "Use 'a/an' to mean 'one' in quantity.",
+      "examples": [
+        "I need a minute to think. (= one minute)",
+        "She gave me an apple. (= one apple)"
+      ],
+      "explanation": "Sometimes 'a/an' simply means 'one' without focusing on specificity.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-ordinals-sequence",
+      "title": "The Definite Article \"THE\" - Ordinals and Sequence",
+      "category": "definite",
+      "description": "Use 'the' with ordinal numbers and sequence expressions.",
+      "examples": [
+        "The first time we met was in Paris.",
+        "The next chapter is more difficult.",
+        "The last question was tricky."
+      ],
+      "explanation": "Ordinal numbers (first, second, next, last) usually require 'the.'",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-countries-regions",
+      "title": "The Definite Article \"THE\" - Countries and Regions",
+      "category": "definite",
+      "description": "Use 'the' with countries that are plural or include words like 'kingdom,' 'states,' or 'republic.' Also use with regions.",
+      "examples": [
+        "The Netherlands is a low-lying country.",
+        "The United States is large.",
+        "The Middle East is very hot."
+      ],
+      "explanation": "Most countries don’t take an article (Spain, Brazil), but plurals and official names do (the Philippines, the United Arab Emirates). Regions like the Arctic, the Middle East, the Balkans also require 'the.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-historical-events",
+      "title": "The Definite Article \"THE\" - Historical Periods and Events",
+      "category": "definite",
+      "description": "Use 'the' with historical periods, wars, decades, and famous events.",
+      "examples": [
+        "The Renaissance was a cultural movement.",
+        "The Second World War began in 1939.",
+        "He loves music from the 1980s."
+      ],
+      "explanation": "Important historical events and time periods almost always take 'the.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "no-article-meals-languages-subjects",
+      "title": "No Article - Meals, Languages, Academic Subjects",
+      "category": "zero",
+      "description": "Don’t use articles with meals, languages, or school subjects unless they are specified.",
+      "examples": [
+        "We had lunch at noon.",
+        "She speaks French.",
+        "He studies biology."
+      ],
+      "explanation": "Meals, languages, and academic subjects don’t take articles in general. But you can specify: 'The lunch we had was delicious.'",
+      "difficulty": "intermediate"
     }
   ]
 }

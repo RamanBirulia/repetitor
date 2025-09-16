@@ -21,7 +21,7 @@ services:
     command: tunnel --config /etc/cloudflared/config.yml run
     volumes:
       - ./cloudflare-tunnel.yml:/etc/cloudflared/config.yml:ro
-      - ~/.cloudflared/birulia.json:/etc/cloudflared/birulia.json:ro
+      - ~/.cloudflared/20cf6478-7ced-4371-857d-e0017b6818bf.json:/etc/cloudflared/20cf6478-7ced-4371-857d-e0017b6818bf.json:ro
       - ~/.cloudflared/cert.pem:/etc/cloudflared/cert.pem:ro
     depends_on:
       repetitor:
@@ -37,34 +37,9 @@ services:
       retries: 3
       start_period: 30s
 
-  # Development service (optional - use with --profile dev)
-  repetitor-dev:
-    build:
-      context: .
-      target: builder
-    container_name: repetitor-dev
-    ports:
-      - "3001:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    command: npm start
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    profiles:
-      - dev
-    networks:
-      - tunnel-network
-
 networks:
   tunnel-network:
     driver: bridge
     ipam:
       config:
         - subnet: 172.20.0.0/16
-
-# Optional: Volume for persistent tunnel data
-volumes:
-  cloudflared-data:
-    driver: local

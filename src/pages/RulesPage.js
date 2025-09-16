@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   getRuleById,
   getFilteredRules,
   getRuleStatistics,
   getCategories,
   getCategoryIcon,
-  getDifficultyColor,
 } from "../utils/articleRulesUtils";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const RulesPage = () => {
   const navigate = useNavigate();
   const { ruleId } = useParams();
+  const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = getCategories();
+  const categories = getCategories(t);
+  const currentLanguage = i18n.language;
 
   useEffect(() => {
     if (ruleId) {
-      const rule = getRuleById(ruleId);
+      const rule = getRuleById(ruleId, currentLanguage);
       if (rule) {
         // Scroll to the specific rule
         setTimeout(() => {
@@ -30,10 +33,14 @@ const RulesPage = () => {
         }, 100);
       }
     }
-  }, [ruleId]);
+  }, [ruleId, currentLanguage]);
 
-  const filteredRules = getFilteredRules(selectedCategory, searchTerm);
-  const ruleStats = getRuleStatistics();
+  const filteredRules = getFilteredRules(
+    selectedCategory,
+    searchTerm,
+    currentLanguage,
+  );
+  const ruleStats = getRuleStatistics(currentLanguage);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -45,24 +52,25 @@ const RulesPage = () => {
               onClick={() => navigate("/")}
               className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
             >
-              ← Back to Home
+              {t("header.backToHome")}
             </button>
-            <button
-              onClick={() => navigate("/article-game")}
-              className="btn-primary"
-            >
-              🎮 Practice Game
-            </button>
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              <button
+                onClick={() => navigate("/article-game")}
+                className="btn-primary"
+              >
+                {t("header.practiceGame")}
+              </button>
+            </div>
           </div>
 
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              📖 English Article Rules
+              {t("rulesPage.title")}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Master the usage of "a", "an", "the", and when to use no article
-              at all. Click on any rule card to see detailed explanations and
-              examples.
+              {t("rulesPage.subtitle")}
             </p>
           </div>
         </div>
@@ -92,7 +100,7 @@ const RulesPage = () => {
                 </div>
                 <input
                   type="text"
-                  placeholder="Search rules..."
+                  placeholder={t("rulesPage.searchPlaceholder")}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
@@ -151,7 +159,7 @@ const RulesPage = () => {
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                     <span className="text-xl mr-2">📝</span>
-                    Detailed Explanation
+                    {t("rulesPage.detailedExplanation")}
                   </h3>
                   <p className="text-gray-700 leading-relaxed text-base">
                     {rule.explanation}
@@ -162,7 +170,7 @@ const RulesPage = () => {
                 <div className="mb-8">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                     <span className="text-xl mr-2">💡</span>
-                    Examples
+                    {t("rulesPage.examples")}
                   </h3>
                   <div className="grid gap-3">
                     {rule.examples.map((example, exampleIndex) => (
@@ -193,10 +201,10 @@ const RulesPage = () => {
             <div className="bg-white rounded-lg shadow-sm p-12">
               <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                No rules found
+                {t("rulesPage.noRulesFound")}
               </h3>
               <p className="text-gray-600 mb-6">
-                Try adjusting your search terms or filters
+                {t("rulesPage.tryAdjusting")}
               </p>
               <button
                 onClick={() => {
@@ -205,7 +213,7 @@ const RulesPage = () => {
                 }}
                 className="btn-secondary"
               >
-                Clear Filters
+                {t("rulesPage.clearFilters")}
               </button>
             </div>
           </div>
@@ -220,25 +228,33 @@ const RulesPage = () => {
               <div className="text-3xl font-bold text-blue-600 mb-1">
                 {ruleStats.total}
               </div>
-              <div className="text-sm text-gray-600">Total Rules</div>
+              <div className="text-sm text-gray-600">
+                {t("rulesPage.totalRules")}
+              </div>
             </div>
             <div>
               <div className="text-3xl font-bold text-green-600 mb-1">
                 {ruleStats.byDifficulty.beginner}
               </div>
-              <div className="text-sm text-gray-600">Beginner</div>
+              <div className="text-sm text-gray-600">
+                {t("rulesPage.difficulty.beginner")}
+              </div>
             </div>
             <div>
               <div className="text-3xl font-bold text-yellow-600 mb-1">
                 {ruleStats.byDifficulty.intermediate}
               </div>
-              <div className="text-sm text-gray-600">Intermediate</div>
+              <div className="text-sm text-gray-600">
+                {t("rulesPage.difficulty.intermediate")}
+              </div>
             </div>
             <div>
               <div className="text-3xl font-bold text-red-600 mb-1">
                 {ruleStats.byDifficulty.advanced}
               </div>
-              <div className="text-sm text-gray-600">Advanced</div>
+              <div className="text-sm text-gray-600">
+                {t("rulesPage.difficulty.advanced")}
+              </div>
             </div>
           </div>
         </div>

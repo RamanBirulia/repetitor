@@ -1,5 +1,5 @@
 tunnel: birulia
-credentials-file: /etc/cloudflared/birulia.json
+credentials-file: /etc/cloudflared/20cf6478-7ced-4371-857d-e0017b6818bf.json
 
 # Origin certificate - required for authentication
 origincert: /etc/cloudflared/cert.pem
@@ -25,8 +25,8 @@ ingress:
   - service: http_status:404
 
 # Optional: Enable additional features
-warp-routing:
-  enabled: false
+# warp-routing:
+#   enabled: false
 
 # Logging configuration
 loglevel: info

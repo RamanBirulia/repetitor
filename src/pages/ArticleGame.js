@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  getRandomSentences,
+  getGameSentences,
   isAnswerCorrect,
   getCorrectAnswerDisplay,
 } from "../utils/gameSentencesUtils";
-import {
-  getCorrectAnswerDisplayTime,
-  getIncorrectAnswerDisplayTime,
-  shouldPauseOnIncorrect,
-  isAutoAdvanceEnabled,
-} from "../utils/contentUtils";
 
 const ArticleGame = () => {
   const navigate = useNavigate();
+  const [allSentences, setAllSentences] = useState([]);
   const [currentSentence, setCurrentSentence] = useState(null);
-  const [sentences, setSentences] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Main progress tracking
+  const [cursor, setCursor] = useState(1); // Goes from 1 to sentences.count
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [attempts, setAttempts] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
+
+  // Error tracking system
+  const [wrongAnswersMap, setWrongAnswersMap] = useState([]); // [{id: number, successRepetitions: number}]
+  const [failureRepetitions, setFailureRepetitions] = useState(0);
+  const [regularQuestionCounter, setRegularQuestionCounter] = useState(0);
+  const [errorQuestionCounter, setErrorQuestionCounter] = useState(0);
+  const [currentMode, setCurrentMode] = useState("regular"); // 'regular' or 'error'
+  const [errorQuestions, setErrorQuestions] = useState([]);
 
   const articleOptions = [
     { value: "a/an", label: "A / AN" },
@@ -31,71 +35,201 @@ const ArticleGame = () => {
   ];
 
   useEffect(() => {
-    // Initialize game with random sentences
-    const gameSentences = getRandomSentences(10);
-    setSentences(gameSentences);
-    setCurrentSentence(gameSentences[0]);
+    // Initialize game with all sentences in order
+    const sentences = getGameSentences();
+    setAllSentences(sentences);
+    if (sentences.length > 0) {
+      setCurrentSentence(sentences[0]);
+    }
   }, []);
+
+  const getCurrentQuestion = () => {
+    if (currentMode === "error" && errorQuestions.length > 0) {
+      const index = errorQuestionCounter % errorQuestions.length;
+      return errorQuestions[index];
+    } else {
+      // Regular mode: use cursor to get current sentence (cursor is 1-based, array is 0-based)
+      if (cursor <= allSentences.length && cursor > 0) {
+        return allSentences[cursor - 1];
+      }
+      return null;
+    }
+  };
+
+  const addToWrongAnswersMap = (sentenceId) => {
+    setWrongAnswersMap((prev) => {
+      const existing = prev.find((item) => item.id === sentenceId);
+      if (existing) {
+        // Reset success repetitions to 0 for wrong answer
+        return prev.map((item) =>
+          item.id === sentenceId ? { ...item, successRepetitions: 0 } : item,
+        );
+      } else {
+        // Add new entry with 0 success repetitions
+        return [...prev, { id: sentenceId, successRepetitions: 0 }];
+      }
+    });
+  };
+
+  const updateSuccessRepetitions = (sentenceId) => {
+    setWrongAnswersMap((prev) => {
+      return prev
+        .map((item) => {
+          if (item.id === sentenceId) {
+            const newSuccessCount = item.successRepetitions + 1;
+            // If reached 3 successful repetitions, we'll remove it after this update
+            return { ...item, successRepetitions: newSuccessCount };
+          }
+          return item;
+        })
+        .filter((item) => {
+          // Remove items that have reached 3 successful repetitions
+          return !(item.id === sentenceId && item.successRepetitions >= 3);
+        });
+    });
+  };
+
+  const prepareErrorQuestions = () => {
+    // Get sentences from wrong answers map
+    const errorSentenceIds = wrongAnswersMap.map((item) => item.id);
+    const errorSentences = allSentences.filter((sentence) =>
+      errorSentenceIds.includes(sentence.id),
+    );
+    if (errorSentences.length > 0) {
+      setErrorQuestions(errorSentences);
+      setErrorQuestionCounter(0);
+    } else {
+      // If no error questions available, stay in regular mode
+      setCurrentMode("regular");
+    }
+  };
 
   const handleAnswerClick = (answer) => {
     if (attempts >= 2 || showResult) return;
 
     setSelectedAnswer(answer);
-    // Check if answer is correct using utility function
-    const correct = isAnswerCorrect(currentSentence, answer);
+    const sentence = getCurrentQuestion();
+
+    if (!sentence) {
+      console.error("No current sentence available");
+      return;
+    }
+
+    const correct = isAnswerCorrect(sentence, answer);
     setIsCorrect(correct);
     setShowResult(true);
     setAttempts((prev) => prev + 1);
 
     if (correct) {
-      setScore((prev) => prev + (attempts === 0 ? 10 : 5)); // More points for first attempt
-    }
+      setScore((prev) => prev + (attempts === 0 ? 10 : 5));
 
-    // For correct answers, show result longer to reinforce learning
-    // For incorrect answers, don't auto-advance to give time for learning
-    if (correct && isAutoAdvanceEnabled()) {
-      setTimeout(() => {
-        nextSentence();
-      }, getCorrectAnswerDisplayTime());
-    } else if (attempts >= 1 && shouldPauseOnIncorrect()) {
-      // Don't auto-advance on final incorrect attempt - let user control
-      // They can use the Next button when ready
+      if (currentMode === "error") {
+        // Update success repetitions for error question
+        updateSuccessRepetitions(sentence.id);
+      }
     } else {
-      // Reset for second attempt after showing feedback
-      setTimeout(() => {
-        setShowResult(false);
-        setSelectedAnswer(null);
-      }, getIncorrectAnswerDisplayTime());
+      // Wrong answer
+      if (currentMode === "regular") {
+        // Add to wrong answers map
+        addToWrongAnswersMap(sentence.id);
+      } else {
+        // Error mode wrong answer
+        addToWrongAnswersMap(sentence.id); // Reset success repetitions to 0
+        setFailureRepetitions((prev) => prev + 1);
+      }
     }
   };
 
-  const nextSentence = () => {
-    const nextIndex = currentIndex + 1;
+  const nextQuestion = () => {
+    let shouldAdvanceCursor = false;
+    let shouldSwitchMode = false;
+    let shouldComplete = false;
 
-    if (nextIndex >= sentences.length) {
+    if (currentMode === "regular") {
+      const newRegularCounter = regularQuestionCounter + 1;
+      setRegularQuestionCounter(newRegularCounter);
+
+      // Check if we completed this regular question successfully
+      if (isCorrect) {
+        shouldAdvanceCursor = true;
+      }
+
+      // Check if it's time for error questions (every 5 regular questions)
+      if (newRegularCounter % 5 === 0 && wrongAnswersMap.length > 0) {
+        // Switch to error mode
+        shouldSwitchMode = true;
+      } else {
+        // Continue with regular questions - check if game should complete
+        const nextCursor = shouldAdvanceCursor ? cursor + 1 : cursor;
+        if (nextCursor > allSentences.length && wrongAnswersMap.length === 0) {
+          shouldComplete = true;
+        }
+      }
+    } else {
+      // Error mode
+      const newErrorCounter = errorQuestionCounter + 1;
+      setErrorQuestionCounter(newErrorCounter);
+
+      // After 2 error questions, switch back to regular mode
+      if (newErrorCounter >= 2) {
+        setCurrentMode("regular");
+      }
+    }
+
+    // Apply state changes
+    if (shouldAdvanceCursor) {
+      setCursor((prev) => prev + 1);
+    }
+
+    if (shouldSwitchMode) {
+      setCurrentMode("error");
+      prepareErrorQuestions();
+    }
+
+    if (shouldComplete) {
       setGameCompleted(true);
       return;
     }
 
-    setCurrentIndex(nextIndex);
-    setCurrentSentence(sentences[nextIndex]);
+    // Reset question state
     setSelectedAnswer(null);
     setAttempts(0);
     setIsCorrect(null);
     setShowResult(false);
   };
 
+  // Update current sentence when relevant state changes
+  useEffect(() => {
+    const nextSentence = getCurrentQuestion();
+    if (nextSentence && nextSentence.id !== currentSentence?.id) {
+      setCurrentSentence(nextSentence);
+    }
+  }, [
+    currentMode,
+    cursor,
+    errorQuestionCounter,
+    errorQuestions,
+    allSentences,
+    wrongAnswersMap,
+  ]);
+
   const restartGame = () => {
-    const newSentences = getRandomSentences(10);
-    setSentences(newSentences);
-    setCurrentSentence(newSentences[0]);
-    setCurrentIndex(0);
+    const sentences = getGameSentences();
+    setAllSentences(sentences);
+    setCurrentSentence(sentences[0]);
+    setCursor(1);
     setSelectedAnswer(null);
     setAttempts(0);
     setIsCorrect(null);
     setShowResult(false);
     setScore(0);
     setGameCompleted(false);
+    setWrongAnswersMap([]);
+    setFailureRepetitions(0);
+    setRegularQuestionCounter(0);
+    setErrorQuestionCounter(0);
+    setCurrentMode("regular");
+    setErrorQuestions([]);
   };
 
   const navigateToRule = (ruleId) => {
@@ -105,7 +239,7 @@ const ArticleGame = () => {
   const getButtonClass = (option) => {
     let baseClass = "article-button";
 
-    if (!showResult) {
+    if (!showResult || !currentSentence) {
       return baseClass;
     }
 
@@ -123,6 +257,22 @@ const ArticleGame = () => {
     return baseClass;
   };
 
+  const getProgressInfo = () => {
+    if (currentMode === "error") {
+      return {
+        current: errorQuestionCounter + 1,
+        total: 2,
+        type: "Error Review",
+      };
+    } else {
+      return {
+        current: cursor,
+        total: allSentences.length,
+        type: "Main Progress",
+      };
+    }
+  };
+
   if (gameCompleted) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -138,6 +288,33 @@ const ArticleGame = () => {
             <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-6 mb-8">
               <div className="text-4xl font-bold mb-2">{score}</div>
               <div className="text-lg">Total Points</div>
+            </div>
+            <div className="space-y-4 mb-6">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="text-sm text-gray-600">Game Statistics</div>
+                <div className="grid grid-cols-3 gap-4 mt-2">
+                  <div>
+                    <div className="text-lg font-bold">{cursor - 1}</div>
+                    <div className="text-xs text-gray-500">
+                      Questions Completed
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold">
+                      {wrongAnswersMap.length}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      Errors Remaining
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold">
+                      {failureRepetitions}
+                    </div>
+                    <div className="text-xs text-gray-500">Total Failures</div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="space-x-4">
               <button onClick={restartGame} className="btn-primary">
@@ -164,6 +341,8 @@ const ArticleGame = () => {
     );
   }
 
+  const progressInfo = getProgressInfo();
+
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -179,11 +358,17 @@ const ArticleGame = () => {
 
             <div className="flex items-center space-x-6">
               <div className="text-sm text-gray-600">
-                Question {currentIndex + 1} of {sentences.length}
+                {progressInfo.type}: {progressInfo.current} of{" "}
+                {progressInfo.total}
               </div>
               <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
                 Score: {score}
               </div>
+              {currentMode === "error" && (
+                <div className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
+                  Review Mode
+                </div>
+              )}
               <button
                 onClick={() => navigateToRule(currentSentence.ruleId)}
                 className="bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-full transition-colors"
@@ -213,23 +398,62 @@ const ArticleGame = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-600">Progress</span>
+            <span className="text-sm text-gray-600">{progressInfo.type}</span>
             <span className="text-sm text-gray-600">
-              {Math.round(((currentIndex + 1) / sentences.length) * 100)}%
+              {Math.round((progressInfo.current / progressInfo.total) * 100)}%
             </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div
-              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentMode === "error" ? "bg-orange-500" : "bg-blue-600"
+              }`}
               style={{
-                width: `${((currentIndex + 1) / sentences.length) * 100}%`,
+                width: `${(progressInfo.current / progressInfo.total) * 100}%`,
               }}
             ></div>
           </div>
         </div>
 
+        {/* Error Status */}
+        {(wrongAnswersMap.length > 0 || currentMode === "error") && (
+          <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <div className="text-sm text-yellow-800">
+              <strong>Errors to Review:</strong> {wrongAnswersMap.length}{" "}
+              questions need more practice
+            </div>
+            <div className="text-xs text-yellow-600 mt-1">
+              Error questions appear every 5th question for additional practice
+            </div>
+            <div className="text-xs text-gray-500 mt-2 space-y-1">
+              <div>
+                Progress: {regularQuestionCounter} regular questions completed
+              </div>
+              <div>
+                Main cursor position: {cursor} of {allSentences.length}
+              </div>
+              {currentMode === "error" && (
+                <div>Error review: {errorQuestionCounter + 1}/2</div>
+              )}
+              <div>
+                Next error review at:{" "}
+                {Math.ceil((regularQuestionCounter + 1) / 5) * 5} questions
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Game Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-slide-up">
+          {/* Question Type Indicator */}
+          {currentMode === "error" && (
+            <div className="mb-4 text-center">
+              <span className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
+                🔄 Error Review Question
+              </span>
+            </div>
+          )}
+
           {/* Sentence */}
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed">
@@ -342,8 +566,13 @@ const ArticleGame = () => {
             <div></div>
 
             {attempts >= 2 || isCorrect ? (
-              <button onClick={nextSentence} className="btn-primary">
-                Next Question →
+              <button onClick={nextQuestion} className="btn-primary">
+                {currentMode === "error" && errorQuestionCounter >= 1
+                  ? "Back to Main Questions →"
+                  : cursor >= allSentences.length &&
+                      wrongAnswersMap.length === 0
+                    ? "Complete Game →"
+                    : "Next Question →"}
               </button>
             ) : showResult && !isCorrect && attempts === 0 ? (
               <div className="text-blue-600 text-sm flex items-center">

@@ -239,6 +239,568 @@
       "explanation": "Use 'the' with seas - they are specific geographic features.",
       "ruleId": "definite-geographic",
       "difficulty": "advanced"
+    },
+
+    {
+      "id": 31,
+      "sentence": "I saw ___ man outside.",
+      "correctAnswer": "a",
+      "explanation": "First mention uses 'a' because the man is not yet specific.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 32,
+      "sentence": "___ man was wearing a red coat.",
+      "correctAnswer": "the",
+      "explanation": "Second mention uses 'the' because the man is now specific.",
+      "ruleId": "definite-second-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 33,
+      "sentence": "She’s in ___ hospital after the accident.",
+      "correctAnswer": "nothing",
+      "explanation": "No article when hospital is used for its main function (as a patient).",
+      "ruleId": "no-article-institutions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 34,
+      "sentence": "He went to ___ school to pick up his children.",
+      "correctAnswer": "the",
+      "explanation": "We use 'the' when talking about the building, not the function of the institution.",
+      "ruleId": "no-article-institutions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 35,
+      "sentence": "___ poor are often disadvantaged in society.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with adjectives like 'poor' to refer to the group as a whole.",
+      "ruleId": "definite-adjectives-groups",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 36,
+      "sentence": "She can play ___ piano very well.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with musical instruments.",
+      "ruleId": "definite-inventions-instruments-species",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 37,
+      "sentence": "___ internet has transformed communication.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with inventions.",
+      "ruleId": "definite-inventions-instruments-species",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 38,
+      "sentence": "___ tiger is an endangered species.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with species to refer to the whole group.",
+      "ruleId": "definite-inventions-instruments-species",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 39,
+      "sentence": "I’ll be back in ___ minute.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to mean 'one minute'.",
+      "ruleId": "indefinite-one",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 40,
+      "sentence": "It was ___ shame we couldn’t go.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' in fixed phrases like 'a shame' meaning 'one instance of'.",
+      "ruleId": "indefinite-one",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 41,
+      "sentence": "This is ___ first time I’ve tried sushi.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with ordinals like 'first.'",
+      "ruleId": "definite-ordinals-sequence",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 42,
+      "sentence": "We’ll talk about it ___ next day.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with sequence words like 'next.'",
+      "ruleId": "definite-ordinals-sequence",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 43,
+      "sentence": "___ Netherlands is famous for windmills and canals.",
+      "correctAnswer": "the",
+      "explanation": "Plural country names or official state names require 'the.'",
+      "ruleId": "definite-countries-regions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 44,
+      "sentence": "He moved to ___ Middle East for work.",
+      "correctAnswer": "the",
+      "explanation": "Regions like 'the Middle East' require 'the.'",
+      "ruleId": "definite-countries-regions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 45,
+      "sentence": "___ Renaissance produced many great artists.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with historical periods.",
+      "ruleId": "definite-historical-events",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 46,
+      "sentence": "Millions died in ___ Second World War.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with wars and major events.",
+      "ruleId": "definite-historical-events",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 47,
+      "sentence": "She speaks ___ Spanish fluently.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with languages.",
+      "ruleId": "no-article-meals-languages-subjects",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 48,
+      "sentence": "We had ___ dinner at a small restaurant.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with meals in general, unless specified ('The dinner we had was amazing').",
+      "ruleId": "no-article-meals-languages-subjects",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 49,
+      "sentence": "He studies ___ physics at university.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with school subjects.",
+      "ruleId": "no-article-meals-languages-subjects",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 50,
+      "sentence": "A child saw ___ tiger in the zoo.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when generalizing with a singular representative example.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "advanced"
+    },
+
+    {
+      "id": 51,
+      "sentence": "She had ___ idea that he was planning a surprise.",
+      "correctAnswer": "no",
+      "explanation": "Fixed phrase 'no idea' means she didn’t know at all.",
+      "ruleId": "fixed-phrases",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 52,
+      "sentence": "I had ___ dream about flying last night.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to describe one instance of a dream.",
+      "ruleId": "indefinite-one",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 53,
+      "sentence": "They live in ___ United States.",
+      "correctAnswer": "the",
+      "explanation": "Countries with plural or union names require 'the'.",
+      "ruleId": "definite-countries-regions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 54,
+      "sentence": "He plays ___ guitar beautifully.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with musical instruments.",
+      "ruleId": "definite-inventions-instruments-species",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 55,
+      "sentence": "___ Alps are popular with skiers.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with mountain ranges.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 56,
+      "sentence": "He drank ___ water after the run.",
+      "correctAnswer": "some",
+      "explanation": "Use 'some' for unspecified quantity of uncountable nouns.",
+      "ruleId": "indefinite-some",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 57,
+      "sentence": "She didn’t buy ___ apples at the market.",
+      "correctAnswer": "any",
+      "explanation": "Use 'any' in negatives with plurals or uncountables.",
+      "ruleId": "indefinite-any",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 58,
+      "sentence": "There isn’t ___ milk left in the fridge.",
+      "correctAnswer": "any",
+      "explanation": "Use 'any' in negatives with uncountable nouns.",
+      "ruleId": "indefinite-any",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 59,
+      "sentence": "Would you like ___ tea?",
+      "correctAnswer": "some",
+      "explanation": "Use 'some' in offers and requests with uncountables.",
+      "ruleId": "indefinite-some",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 60,
+      "sentence": "___ Prime Minister gave a speech yesterday.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with unique official positions.",
+      "ruleId": "definite-unique",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 61,
+      "sentence": "She is ___ expert in her field.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' before professions or roles; 'an' because 'expert' starts with a vowel sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 62,
+      "sentence": "___ Mount Everest is the tallest mountain.",
+      "correctAnswer": "nothing",
+      "explanation": "No 'the' with single mountains, unless it's a range.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 63,
+      "sentence": "She was reading ___ old book by the fire.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when first introducing; 'an' because 'old' begins with a vowel sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 64,
+      "sentence": "He went to ___ bed early last night.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with 'bed' when used for its primary purpose (sleeping).",
+      "ruleId": "no-article-institutions",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 65,
+      "sentence": "She was tired after ___ long journey.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to describe one instance of a long journey.",
+      "ruleId": "indefinite-one",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 66,
+      "sentence": "___ moon looks beautiful tonight.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' for unique objects like the moon.",
+      "ruleId": "definite-unique",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 67,
+      "sentence": "Do you play ___ chess?",
+      "correctAnswer": "nothing",
+      "explanation": "No article with names of games.",
+      "ruleId": "no-article-meals-languages-subjects",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 68,
+      "sentence": "___ Sahara is the largest hot desert.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with desert names.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 69,
+      "sentence": "She studied ___ mathematics at university.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with school subjects.",
+      "ruleId": "no-article-meals-languages-subjects",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 70,
+      "sentence": "He’s one of ___ smartest students in class.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 71,
+      "sentence": "She asked for ___ advice about her career.",
+      "correctAnswer": "some",
+      "explanation": "Use 'some' with uncountable nouns in positive contexts.",
+      "ruleId": "indefinite-some",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 72,
+      "sentence": "There aren’t ___ chairs in the room.",
+      "correctAnswer": "any",
+      "explanation": "Use 'any' in negatives with plurals.",
+      "ruleId": "indefinite-any",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 73,
+      "sentence": "___ French Revolution changed European history.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with famous historical events.",
+      "ruleId": "definite-historical-events",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 74,
+      "sentence": "She looked at me with ___ smile.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when mentioning one instance of a smile.",
+      "ruleId": "indefinite-one",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 75,
+      "sentence": "___ Mount Fuji is in Japan.",
+      "correctAnswer": "nothing",
+      "explanation": "Single mountain names don’t take 'the'.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 76,
+      "sentence": "He wrote ___ email to his professor.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when introducing; 'an' because 'email' starts with a vowel sound.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 77,
+      "sentence": "___ government passed a new law.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' when referring to a specific country’s government.",
+      "ruleId": "definite-unique",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 78,
+      "sentence": "___ Black Sea lies between Europe and Asia.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with seas.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 79,
+      "sentence": "___ Everest is the highest mountain in the world.",
+      "correctAnswer": "Mount",
+      "explanation": "Proper name 'Mount Everest' needs no article.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 80,
+      "sentence": "She heard ___ noise outside the house.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when first mentioning something unknown.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 81,
+      "sentence": "The children are playing in ___ garden.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' when both speaker and listener know the place.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 82,
+      "sentence": "She is ___ artist known worldwide.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions; 'an' before vowel sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 83,
+      "sentence": "We went to ___ cinema last night.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with public places when referring to a specific one.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 84,
+      "sentence": "He had ___ little money left.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' in fixed phrase 'a little' meaning some.",
+      "ruleId": "indefinite-one",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 85,
+      "sentence": "She doesn’t have ___ friends in the city.",
+      "correctAnswer": "any",
+      "explanation": "Use 'any' in negative with plurals.",
+      "ruleId": "indefinite-any",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 86,
+      "sentence": "I need ___ information before making a decision.",
+      "correctAnswer": "some",
+      "explanation": "Use 'some' with uncountable nouns.",
+      "ruleId": "indefinite-some",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 87,
+      "sentence": "___ United Kingdom consists of four countries.",
+      "correctAnswer": "the",
+      "explanation": "Countries with political unions take 'the'.",
+      "ruleId": "definite-countries-regions",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 88,
+      "sentence": "She went to ___ university in Paris.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' for an unspecified institution.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 89,
+      "sentence": "We visited ___ Louvre while in France.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with famous buildings and museums.",
+      "ruleId": "definite-specific",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 90,
+      "sentence": "They went to ___ church every Sunday.",
+      "correctAnswer": "nothing",
+      "explanation": "No article when used for primary purpose (worship).",
+      "ruleId": "no-article-institutions",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 91,
+      "sentence": "He left for ___ work early in the morning.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with 'work' when used generally.",
+      "ruleId": "no-article-institutions",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 92,
+      "sentence": "We stayed at ___ Ritz Hotel in London.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with hotel names.",
+      "ruleId": "definite-specific",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 93,
+      "sentence": "She is ___ most intelligent person I know.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with superlatives.",
+      "ruleId": "definite-superlatives",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 94,
+      "sentence": "He wants to become ___ engineer.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions; 'an' before vowel sound.",
+      "ruleId": "indefinite-jobs-professions",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 95,
+      "sentence": "They climbed ___ Everest last year.",
+      "correctAnswer": "Mount",
+      "explanation": "Use 'Mount Everest' with no article.",
+      "ruleId": "no-article-proper-nouns",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 96,
+      "sentence": "___ Nile flows through Egypt.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with river names.",
+      "ruleId": "definite-geographic",
+      "difficulty": "advanced"
+    },
+    {
+      "id": 97,
+      "sentence": "She has ___ brother and two sisters.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when mentioning one family member for the first time.",
+      "ruleId": "indefinite-first-mention",
+      "difficulty": "beginner"
+    },
+    {
+      "id": 98,
+      "sentence": "We’re going on holiday in ___ summer.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with seasons when referring generally.",
+      "ruleId": "definite-specific",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 99,
+      "sentence": "She usually goes to ___ bed at 10 p.m.",
+      "correctAnswer": "nothing",
+      "explanation": "No article with 'bed' when used for its function.",
+      "ruleId": "no-article-institutions",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 100,
+      "sentence": "We saw ___ Eiffel Tower during our trip.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with famous landmarks.",
+      "ruleId": "definite-specific",
+      "difficulty": "beginner"
     }
   ]
 }
