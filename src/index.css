@@ -82,6 +82,10 @@
         @apply border-danger-500 bg-danger-50 text-danger-700;
     }
 
+    .article-button.failed {
+        @apply border-red-400 bg-red-100 text-red-600 cursor-not-allowed opacity-75;
+    }
+
     .article-button:disabled {
         @apply cursor-not-allowed opacity-50;
     }
