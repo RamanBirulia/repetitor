@@ -801,6 +801,366 @@
       "explanation": "Use 'the' with famous landmarks.",
       "ruleId": "definite-specific",
       "difficulty": "beginner"
+    },
+    {
+      "id": 101,
+      "sentence": "I'm in ___ hurry, so I can't talk right now.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'in a hurry'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 102,
+      "sentence": "He works hard to make ___ living for his family.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'make a living'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 103,
+      "sentence": "Let's take ___ break and continue later.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'take a break'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 104,
+      "sentence": "We had ___ good time at the party last night.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'have a good time'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 105,
+      "sentence": "I'm at ___ loss about what to do next.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'at a loss'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 106,
+      "sentence": "As ___ result of the rain, the match was cancelled.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'as a result'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 107,
+      "sentence": "I'll be away for ___ while, maybe two weeks.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'for a while'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 108,
+      "sentence": "Once in ___ while, I like to treat myself to something nice.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'once in a while'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 109,
+      "sentence": "Your support can make ___ difference in their lives.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'make a difference'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 110,
+      "sentence": "Please have ___ seat and wait for the doctor.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'have a seat'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 111,
+      "sentence": "I think I'm going to catch ___ cold if I don't wear a jacket.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'catch a cold'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 112,
+      "sentence": "I need to take ___ shower before going out.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'take a shower'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 113,
+      "sentence": "Can you have ___ look at this document for me?",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'have a look'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 114,
+      "sentence": "Could you give me ___ hand with these boxes?",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'give a hand'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 115,
+      "sentence": "I'm tired, I think I'll take ___ nap.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression that must be memorized: 'take a nap'.",
+      "ruleId": "common-expression-a",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 116,
+      "sentence": "I usually listen to music in ___ morning.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'in the morning'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 117,
+      "sentence": "I heard the news on ___ radio this morning.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'on the radio'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 118,
+      "sentence": "At ___ moment, I'm too busy to help you.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'at the moment'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 119,
+      "sentence": "For ___ time being, we'll have to wait.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'for the time being'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 120,
+      "sentence": "By ___ way, have you seen my keys anywhere?",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'by the way'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 121,
+      "sentence": "I like chocolate, but on ___ other hand, it's not very healthy.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'on the other hand'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 122,
+      "sentence": "In ___ end, everything worked out perfectly.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'in the end'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 123,
+      "sentence": "At ___ beginning of the movie, I was confused.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'at the beginning'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 124,
+      "sentence": "You should always tell ___ truth, even when it's difficult.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'tell the truth'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 125,
+      "sentence": "I need to make ___ bed before leaving the house.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'make the bed'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 126,
+      "sentence": "After dinner, I usually do ___ dishes.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'do the dishes'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 127,
+      "sentence": "At ___ same time, we were both thinking the same thing.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'at the same time'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 128,
+      "sentence": "The accident happened in ___ middle of the night.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'in the middle of'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 129,
+      "sentence": "On ___ whole, I think the project was successful.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'on the whole'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 130,
+      "sentence": "I saw him at the store ___ other day.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression that must be memorized: 'the other day'.",
+      "ruleId": "common-expression-the",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 131,
+      "sentence": "I prefer to work at ___ home rather than in the office.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'at home'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 132,
+      "sentence": "Every morning I go to ___ work by bus.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'go to work'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 133,
+      "sentence": "I usually travel by ___ car when going long distances.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'by car'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 134,
+      "sentence": "She's still at ___ school, studying for her exams.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'at school'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 135,
+      "sentence": "The children are already in ___ bed.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'in bed'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 136,
+      "sentence": "We like to watch ___ TV together in the evening.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'watch TV'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 137,
+      "sentence": "My son loves to play ___ football with his friends.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'play football'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 138,
+      "sentence": "I always have ___ breakfast before going to work.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'have breakfast'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 139,
+      "sentence": "She loves to go ___ shopping on weekends.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'go shopping'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 140,
+      "sentence": "I met him by ___ accident at the coffee shop.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'by accident'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 141,
+      "sentence": "I prefer to travel on ___ foot when the weather is nice.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'on foot'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 142,
+      "sentence": "The city is beautiful at ___ night.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'at night'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 143,
+      "sentence": "She learned the entire poem by ___ heart.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'by heart'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 144,
+      "sentence": "I need to lose ___ weight before my wedding.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'lose weight'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": 145,
+      "sentence": "The old building could catch ___ fire easily.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression that must be memorized: 'catch fire'.",
+      "ruleId": "common-expression-no-article",
+      "difficulty": "intermediate"
     }
   ]
 }

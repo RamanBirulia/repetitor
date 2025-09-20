@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  isCommonExpression,
+  getCommonExpressionIcon,
+} from "../utils/gameSentencesUtils";
 
 const QuestionCard = ({ currentQuestion, currentMode }) => {
   if (!currentQuestion) {
@@ -18,6 +22,16 @@ const QuestionCard = ({ currentQuestion, currentMode }) => {
 
       {/* Sentence */}
       <div className="text-center mb-12">
+        {/* Common Expression Indicator */}
+        {isCommonExpression(currentQuestion) && (
+          <div className="mb-4 flex justify-center items-center">
+            <span className="inline-flex items-center bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
+              {getCommonExpressionIcon(currentQuestion)}
+              <span className="ml-1">Common Expression - Learn by Heart</span>
+            </span>
+          </div>
+        )}
+
         <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed">
           {currentQuestion.sentence.split("___").map((part, index) => (
             <span key={index}>

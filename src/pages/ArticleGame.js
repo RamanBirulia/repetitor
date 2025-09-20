@@ -4,6 +4,10 @@ import useDebugPanel from "../hooks/useDebugPanel";
 import DebugPanel from "../articleGameComponents/DebugPanel";
 import DebugButton from "../articleGameComponents/DebugButton";
 import {
+  isCommonExpression,
+  getCommonExpressionIcon,
+} from "../utils/gameSentencesUtils";
+import {
   GameHeader,
   GameProgressBar,
   ErrorStatusCard,
@@ -78,6 +82,18 @@ const ArticleGame = () => {
           {/* Sentence */}
           {articleGameResult.currentQuestion && (
             <div className="text-center mb-12">
+              {/* Common Expression Indicator */}
+              {isCommonExpression(articleGameResult.currentQuestion) && (
+                <div className="mb-4 flex justify-center items-center">
+                  <span className="inline-flex items-center bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
+                    {getCommonExpressionIcon(articleGameResult.currentQuestion)}
+                    <span className="ml-1">
+                      Common Expression - Learn by Heart
+                    </span>
+                  </span>
+                </div>
+              )}
+
               <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed">
                 {articleGameResult.currentQuestion.sentence
                   .split("___")

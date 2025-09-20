@@ -85,6 +85,8 @@ export const getRuleStatistics = (language = "en") => {
     definite: rules.filter((r) => r.category === "definite").length,
     indefinite: rules.filter((r) => r.category === "indefinite").length,
     zero: rules.filter((r) => r.category === "zero").length,
+    "common-expression": rules.filter((r) => r.category === "common-expression")
+      .length,
   };
   const byDifficulty = {
     beginner: rules.filter((r) => r.difficulty === "beginner").length,
@@ -114,6 +116,12 @@ export const getCategories = (t) => {
         : "A/An (Indefinite Articles)",
     },
     { value: "zero", label: t ? t("rulesPage.categories.zero") : "No Article" },
+    {
+      value: "common-expression",
+      label: t
+        ? t("rulesPage.categories.commonExpression")
+        : "Common Expressions",
+    },
   ];
 };
 
@@ -136,6 +144,8 @@ export const getCategoryIcon = (category) => {
       return "🔤";
     case "zero":
       return "∅";
+    case "common-expression":
+      return "🧠";
     default:
       return "📚";
   }

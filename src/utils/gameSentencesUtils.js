@@ -1,5 +1,5 @@
 // Utility functions for working with game sentences data
-import gameSentencesData from '../content/gameSentences.json';
+import gameSentencesData from "../content/gameSentences.json";
 
 const { gameSentences } = gameSentencesData;
 
@@ -10,27 +10,30 @@ export const getGameSentences = () => {
 
 // Get a specific sentence by ID
 export const getSentenceById = (id) => {
-  return gameSentences.find(sentence => sentence.id === id);
+  return gameSentences.find((sentence) => sentence.id === id);
 };
 
 // Get sentences by difficulty level
 export const getSentencesByDifficulty = (difficulty) => {
-  return gameSentences.filter(sentence => sentence.difficulty === difficulty);
+  return gameSentences.filter((sentence) => sentence.difficulty === difficulty);
 };
 
 // Get sentences by rule ID
 export const getSentencesByRuleId = (ruleId) => {
-  return gameSentences.filter(sentence => sentence.ruleId === ruleId);
+  return gameSentences.filter((sentence) => sentence.ruleId === ruleId);
 };
 
 // Get sentences by correct answer type
 export const getSentencesByAnswerType = (answerType) => {
-  if (answerType === 'indefinite') {
-    return gameSentences.filter(sentence =>
-      sentence.correctAnswer === 'a' || sentence.correctAnswer === 'an'
+  if (answerType === "indefinite") {
+    return gameSentences.filter(
+      (sentence) =>
+        sentence.correctAnswer === "a" || sentence.correctAnswer === "an",
     );
   }
-  return gameSentences.filter(sentence => sentence.correctAnswer === answerType);
+  return gameSentences.filter(
+    (sentence) => sentence.correctAnswer === answerType,
+  );
 };
 
 // Get random sentences with optional filtering
@@ -40,20 +43,25 @@ export const getRandomSentences = (count = 10, options = {}) => {
 
   // Apply filters
   if (difficulty) {
-    filtered = filtered.filter(sentence => sentence.difficulty === difficulty);
+    filtered = filtered.filter(
+      (sentence) => sentence.difficulty === difficulty,
+    );
   }
 
   if (ruleId) {
-    filtered = filtered.filter(sentence => sentence.ruleId === ruleId);
+    filtered = filtered.filter((sentence) => sentence.ruleId === ruleId);
   }
 
   if (answerType) {
-    if (answerType === 'indefinite') {
-      filtered = filtered.filter(sentence =>
-        sentence.correctAnswer === 'a' || sentence.correctAnswer === 'an'
+    if (answerType === "indefinite") {
+      filtered = filtered.filter(
+        (sentence) =>
+          sentence.correctAnswer === "a" || sentence.correctAnswer === "an",
       );
     } else {
-      filtered = filtered.filter(sentence => sentence.correctAnswer === answerType);
+      filtered = filtered.filter(
+        (sentence) => sentence.correctAnswer === answerType,
+      );
     }
   }
 
@@ -74,16 +82,17 @@ export const getSentenceStatistics = () => {
   const total = gameSentences.length;
 
   const byDifficulty = {
-    beginner: gameSentences.filter(s => s.difficulty === 'beginner').length,
-    intermediate: gameSentences.filter(s => s.difficulty === 'intermediate').length,
-    advanced: gameSentences.filter(s => s.difficulty === 'advanced').length
+    beginner: gameSentences.filter((s) => s.difficulty === "beginner").length,
+    intermediate: gameSentences.filter((s) => s.difficulty === "intermediate")
+      .length,
+    advanced: gameSentences.filter((s) => s.difficulty === "advanced").length,
   };
 
   const byAnswer = {
-    a: gameSentences.filter(s => s.correctAnswer === 'a').length,
-    an: gameSentences.filter(s => s.correctAnswer === 'an').length,
-    the: gameSentences.filter(s => s.correctAnswer === 'the').length,
-    nothing: gameSentences.filter(s => s.correctAnswer === 'nothing').length
+    a: gameSentences.filter((s) => s.correctAnswer === "a").length,
+    an: gameSentences.filter((s) => s.correctAnswer === "an").length,
+    the: gameSentences.filter((s) => s.correctAnswer === "the").length,
+    nothing: gameSentences.filter((s) => s.correctAnswer === "nothing").length,
   };
 
   const byRule = gameSentences.reduce((acc, sentence) => {
@@ -95,7 +104,7 @@ export const getSentenceStatistics = () => {
     total,
     byDifficulty,
     byAnswer,
-    byRule
+    byRule,
   };
 };
 
@@ -104,8 +113,8 @@ export const isAnswerCorrect = (sentence, userAnswer) => {
   if (!sentence || !userAnswer) return false;
 
   // Handle the a/an case where user selects "a/an" but answer is "a" or "an"
-  if (userAnswer === 'a/an') {
-    return sentence.correctAnswer === 'a' || sentence.correctAnswer === 'an';
+  if (userAnswer === "a/an") {
+    return sentence.correctAnswer === "a" || sentence.correctAnswer === "an";
   }
 
   return userAnswer === sentence.correctAnswer;
@@ -114,13 +123,13 @@ export const isAnswerCorrect = (sentence, userAnswer) => {
 // Get the display text for the correct answer
 export const getCorrectAnswerDisplay = (correctAnswer) => {
   switch (correctAnswer) {
-    case 'nothing':
-      return 'NO ARTICLE';
-    case 'a':
-    case 'an':
-      return 'A / AN';
-    case 'the':
-      return 'THE';
+    case "nothing":
+      return "NO ARTICLE";
+    case "a":
+    case "an":
+      return "A / AN";
+    case "the":
+      return "THE";
     default:
       return correctAnswer.toUpperCase();
   }
@@ -129,10 +138,10 @@ export const getCorrectAnswerDisplay = (correctAnswer) => {
 // Get available difficulty levels for sentences
 export const getSentenceDifficultyLevels = () => {
   return [
-    { value: 'all', label: 'All Levels' },
-    { value: 'beginner', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
-    { value: 'advanced', label: 'Advanced' }
+    { value: "all", label: "All Levels" },
+    { value: "beginner", label: "Beginner" },
+    { value: "intermediate", label: "Intermediate" },
+    { value: "advanced", label: "Advanced" },
   ];
 };
 
@@ -153,11 +162,36 @@ export const createBalancedPracticeSet = (totalCount = 10) => {
   const intermediateCount = Math.ceil(totalCount * 0.4); // 40% intermediate
   const advancedCount = totalCount - beginnerCount - intermediateCount; // 20% advanced
 
-  const beginnerSentences = getRandomSentences(beginnerCount, { difficulty: 'beginner' });
-  const intermediateSentences = getRandomSentences(intermediateCount, { difficulty: 'intermediate' });
-  const advancedSentences = getRandomSentences(advancedCount, { difficulty: 'advanced' });
+  const beginnerSentences = getRandomSentences(beginnerCount, {
+    difficulty: "beginner",
+  });
+  const intermediateSentences = getRandomSentences(intermediateCount, {
+    difficulty: "intermediate",
+  });
+  const advancedSentences = getRandomSentences(advancedCount, {
+    difficulty: "advanced",
+  });
 
   // Combine and shuffle
-  const combined = [...beginnerSentences, ...intermediateSentences, ...advancedSentences];
+  const combined = [
+    ...beginnerSentences,
+    ...intermediateSentences,
+    ...advancedSentences,
+  ];
   return shuffleSentences(combined);
+};
+
+// Check if a sentence is a common expression question
+export const isCommonExpression = (sentence) => {
+  if (!sentence || !sentence.ruleId) return false;
+
+  return sentence.ruleId.startsWith("common-expression");
+};
+
+// Get common expression icon based on the rule type
+export const getCommonExpressionIcon = (sentence) => {
+  if (!isCommonExpression(sentence)) return null;
+
+  // Return a brain/memory icon to indicate this needs to be memorized
+  return "🧠";
 };

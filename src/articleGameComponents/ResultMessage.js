@@ -1,13 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { getCorrectAnswerDisplay } from "../utils/gameSentencesUtils";
+import {
+  getCorrectAnswerDisplay,
+  isCommonExpression,
+  getCommonExpressionIcon,
+} from "../utils/gameSentencesUtils";
 
 const ResultMessage = ({
   showResult,
   isCorrect,
   currentQuestion,
   shouldShowCorrectAnswer,
-  canRetry
+  canRetry,
 }) => {
   const navigate = useNavigate();
 
@@ -45,17 +49,35 @@ const ResultMessage = ({
         {currentQuestion.explanation}
       </p>
 
+      {/* Additional info for common expressions */}
+      {isCommonExpression(currentQuestion) && (
+        <div className="mt-3 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+          <div className="flex items-start">
+            <span className="text-lg mr-2">
+              {getCommonExpressionIcon(currentQuestion)}
+            </span>
+            <div>
+              <p className="text-purple-700 text-sm font-medium">
+                This is a common expression that must be memorized.
+              </p>
+              <p className="text-purple-600 text-xs mt-1">
+                These expressions don't follow standard article rules and should
+                be learned by heart.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {canRetry && (
         <div className="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
           <div className="flex items-start">
             <div className="text-2xl mr-3">💡</div>
             <div>
-              <h4 className="text-blue-800 font-semibold mb-1">
-                Try again!
-              </h4>
+              <h4 className="text-blue-800 font-semibold mb-1">Try again!</h4>
               <p className="text-blue-700 text-sm">
-                Read the explanation above carefully, then select
-                another option. You can still get partial points!
+                Read the explanation above carefully, then select another
+                option. You can still get partial points!
               </p>
             </div>
           </div>

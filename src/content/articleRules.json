@@ -220,6 +220,81 @@
       ],
       "explanation": "Meals, languages, and academic subjects don’t take articles in general. But you can specify: 'The lunch we had was delicious.'",
       "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-a",
+      "title": "Common Expressions with \"A/AN\"",
+      "category": "common-expression",
+      "description": "Some expressions with \"a/an\" must be memorized as they don't follow general rules.",
+      "examples": [
+        "in a hurry",
+        "make a living",
+        "take a break",
+        "have a good time",
+        "at a loss",
+        "as a result",
+        "for a while",
+        "once in a while",
+        "make a difference",
+        "have a seat",
+        "catch a cold",
+        "take a shower",
+        "have a look",
+        "give a hand",
+        "take a nap"
+      ],
+      "explanation": "These are idiomatic expressions that always use \"a\" or \"an.\" They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-the",
+      "title": "Common Expressions with \"THE\"",
+      "category": "common-expression",
+      "description": "Some expressions with \"the\" must be memorized as they don't follow general rules.",
+      "examples": [
+        "in the morning/afternoon/evening",
+        "on the radio/phone/internet",
+        "at the moment",
+        "for the time being",
+        "by the way",
+        "on the other hand",
+        "in the end",
+        "at the beginning",
+        "tell the truth",
+        "make the bed",
+        "do the dishes",
+        "at the same time",
+        "in the middle of",
+        "on the whole",
+        "the other day"
+      ],
+      "explanation": "These are idiomatic expressions that always use \"the.\" They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-no-article",
+      "title": "Common Expressions with No Article",
+      "category": "common-expression",
+      "description": "Some expressions use no article and must be memorized as they don't follow general rules.",
+      "examples": [
+        "at home",
+        "go to work",
+        "by car/bus/train/plane",
+        "at school/university",
+        "in bed",
+        "watch TV",
+        "play football/tennis",
+        "have breakfast/lunch/dinner",
+        "go shopping",
+        "by accident",
+        "on foot",
+        "at night",
+        "by heart",
+        "lose weight",
+        "catch fire"
+      ],
+      "explanation": "These are idiomatic expressions that never use an article. They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
     }
   ]
 }

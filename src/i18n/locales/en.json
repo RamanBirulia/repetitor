@@ -13,16 +13,16 @@
   },
   "header": {
     "backToHome": "← Back to Home",
-    "practiceGame": "🎮 Practice Game",
-    "grammarRules": "📖 Grammar Rules"
+    "practiceGame": "Practice Game",
+    "grammarRules": "Grammar Rules"
   },
   "homePage": {
-    "title": "🎓 Repetitor",
+    "title": "Repetitor",
     "subtitle": "Master English grammar through gamified learning. Practice, play, and progress with comprehensive rule guides!",
     "chooseLearningAdventure": "Choose Your Learning Adventure",
     "description": "Select a game below to start improving your English skills. Each game is designed to make learning engaging and effective through interactive exercises. Need help? Check our comprehensive grammar guide!",
-    "startLearning": "🚀 Start Learning",
-    "completeGrammarGuide": "📖 Complete Grammar Guide",
+    "startLearning": "Start Learning",
+    "completeGrammarGuide": "Complete Grammar Guide",
     "whyChoose": "Why Choose Repetitor?",
     "targetedPractice": "Targeted Practice",
     "targetedPracticeDesc": "Focus on specific grammar rules with carefully designed exercises",
@@ -39,18 +39,18 @@
     "question": "Question {{current}} of {{total}}",
     "progress": "Progress",
     "selectAnswer": "Select an answer to continue",
-    "readExplanation": "🤔 Read the explanation, then try again",
+    "readExplanation": "Read the explanation, then try again",
     "correctAnswer": "Correct answer:",
     "nextQuestion": "Next Question →",
-    "viewAllRules": "📖 View All Rules",
-    "studyRule": "📖 Study this rule in detail →",
+    "viewAllRules": "View All Rules",
+    "studyRule": "Study this rule in detail →",
     "congratulations": "Congratulations!",
     "gameCompleted": "You completed the game!",
     "totalPoints": "Total Points",
     "playAgain": "Play Again",
     "backToHome": "Back to Home",
-    "correct": "✓ Correct!",
-    "incorrect": "✗ Incorrect",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
     "excellentWork": "Excellent work!",
     "excellentWorkDesc": "You've mastered this rule! The next question will appear automatically in a few seconds.",
     "takeYourTime": "Take your time!",
@@ -64,27 +64,28 @@
     "secondAttemptPoints": " (+5 points)"
   },
   "rulesPage": {
-    "title": "📖 English Article Rules",
+    "title": "English Article Rules",
     "subtitle": "Master the usage of \"a\", \"an\", \"the\", and when to use no article at all. Click on any rule card to see detailed explanations and examples.",
     "searchPlaceholder": "Search rules...",
     "categories": {
       "all": "All Rules",
       "definite": "The (Definite Article)",
       "indefinite": "A/An (Indefinite Articles)",
-      "zero": "No Article"
+      "zero": "No Article",
+      "commonExpression": "Common Expressions"
     },
     "difficulty": {
       "beginner": "Beginner",
       "intermediate": "Intermediate",
       "advanced": "Advanced"
     },
-    "detailedExplanation": "📝 Detailed Explanation",
-    "examples": "💡 Examples",
+    "detailedExplanation": "Detailed Explanation",
+    "examples": "Examples",
     "noRulesFound": "No rules found",
     "tryAdjusting": "Try adjusting your search terms or filters",
     "clearFilters": "Clear Filters",
     "totalRules": "Total Rules",
-    "practiceThisRule": "🎯 Practice This Rule"
+    "practiceThisRule": "Practice This Rule"
   },
   "rules": {
     "definite-specific": {

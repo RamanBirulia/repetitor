@@ -60,7 +60,7 @@ const RulesPage = () => {
                 onClick={() => navigate("/article-game")}
                 className="btn-primary"
               >
-                {t("header.practiceGame")}
+                🎮 {t("header.practiceGame")}
               </button>
             </div>
           </div>
