@@ -47,7 +47,11 @@ const ResultMessage = ({
 
       <div className="mt-6 text-center">
         <button
-          onClick={() => navigate(`/rules/${currentQuestion.ruleId}`)}
+          onClick={() =>
+            navigate(`/rules/${currentQuestion.ruleId}`, {
+              state: { fromGame: true },
+            })
+          }
           className="text-grey-500 hover:text-grey-800 hover:scale-105 text-sm transition-transform"
         >
           📖 Study this rule in detail →

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   getRuleById,
@@ -12,13 +12,25 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const RulesPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { ruleId } = useParams();
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  // Check if user came from the game page
+  const [cameFromGame, setCameFromGame] = useState(false);
+
   const categories = getCategories(t);
   const currentLanguage = i18n.language;
+
+  useEffect(() => {
+    // Check if user came from the game page
+    const referrer = document.referrer;
+    const fromGamePage =
+      referrer.includes("/article-game") || location.state?.fromGame;
+    setCameFromGame(fromGamePage && ruleId); // Only show back button when viewing a specific rule from game
+  }, [ruleId, location]);
 
   useEffect(() => {
     if (ruleId) {
@@ -44,6 +56,32 @@ const RulesPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Floating Back Button - only when coming from game */}
+      {cameFromGame && (
+        <div className="fixed top-24 right-4 sm:right-6 z-50 animate-fade-in">
+          <button
+            onClick={() => navigate("/article-game")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-5 sm:py-3 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl hover:-translate-y-1 flex items-center space-x-1 sm:space-x-2 font-medium text-xs sm:text-sm"
+            title="Back to Game"
+          >
+            <svg
+              className="w-3 h-3 sm:w-4 sm:h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Back</span>
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

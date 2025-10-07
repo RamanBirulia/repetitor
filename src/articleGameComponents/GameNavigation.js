@@ -12,7 +12,10 @@ const GameNavigation = ({
 
   return (
     <div className="flex justify-between items-center">
-      <button onClick={() => navigate("/rules")} className="btn-secondary">
+      <button
+        onClick={() => navigate("/rules", { state: { fromGame: true } })}
+        className="btn-secondary"
+      >
         📖 View All Rules
       </button>
 

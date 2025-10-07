@@ -5,7 +5,7 @@ const GameHeader = ({ progress, currentMode, currentQuestion }) => {
   const navigate = useNavigate();
 
   const navigateToRule = (ruleId) => {
-    navigate(`/rules/${ruleId}`);
+    navigate(`/rules/${ruleId}`, { state: { fromGame: true } });
   };
 
   return (
