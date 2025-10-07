@@ -75,7 +75,7 @@
     {
       "id": 10,
       "sentence": "I saw ___ interesting movie last night.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'interesting' starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
@@ -83,7 +83,7 @@
     {
       "id": 11,
       "sentence": "She bought ___ new car yesterday.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'a' because 'new' starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
@@ -91,7 +91,7 @@
     {
       "id": 12,
       "sentence": "There's ___ cat sitting on the fence.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' when introducing something new to the conversation. Use 'a' because 'cat' starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
@@ -99,7 +99,7 @@
     {
       "id": 13,
       "sentence": "My sister is ___ nurse at the local hospital.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' with professions. Use 'a' because 'nurse' starts with a consonant sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
@@ -107,7 +107,7 @@
     {
       "id": 14,
       "sentence": "He wants to become ___ architect.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' with professions. Use 'an' because 'architect' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
@@ -115,7 +115,7 @@
     {
       "id": 15,
       "sentence": "She works as ___ teacher in elementary school.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' with professions. Use 'a' because 'teacher' starts with a consonant sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
@@ -203,7 +203,7 @@
     {
       "id": 26,
       "sentence": "I need to buy ___ umbrella before it rains.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'umbrella' starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
@@ -227,7 +227,7 @@
     {
       "id": 29,
       "sentence": "My brother is ___ engineer at a tech company.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' with professions. Use 'an' because 'engineer' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
@@ -240,28 +240,27 @@
       "ruleId": "definite-geographic",
       "difficulty": "advanced"
     },
-
     {
       "id": 31,
       "sentence": "I saw ___ man outside.",
-      "correctAnswer": "a",
-      "explanation": "First mention uses 'a' because the man is not yet specific.",
+      "correctAnswer": "a/an",
+      "explanation": "First mention uses 'a' because the man is not yet specific to the listener.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
     },
     {
       "id": 32,
-      "sentence": "___ man was wearing a red coat.",
+      "sentence": "I saw a man outside. ___ man was wearing a red coat.",
       "correctAnswer": "the",
-      "explanation": "Second mention uses 'the' because the man is now specific.",
+      "explanation": "Second mention uses 'the' because the man is now specific and known to both speaker and listener.",
       "ruleId": "definite-second-mention",
       "difficulty": "beginner"
     },
     {
       "id": 33,
-      "sentence": "She’s in ___ hospital after the accident.",
+      "sentence": "She's in ___ hospital after the accident.",
       "correctAnswer": "nothing",
-      "explanation": "No article when hospital is used for its main function (as a patient).",
+      "explanation": "No article when hospital is used for its main function (as a patient receiving medical care).",
       "ruleId": "no-article-institutions",
       "difficulty": "advanced"
     },
@@ -269,15 +268,15 @@
       "id": 34,
       "sentence": "He went to ___ school to pick up his children.",
       "correctAnswer": "the",
-      "explanation": "We use 'the' when talking about the building, not the function of the institution.",
-      "ruleId": "no-article-institutions",
+      "explanation": "We use 'the' when talking about the building itself, not the function of the institution.",
+      "ruleId": "definite-specific",
       "difficulty": "advanced"
     },
     {
       "id": 35,
       "sentence": "___ poor are often disadvantaged in society.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with adjectives like 'poor' to refer to the group as a whole.",
+      "explanation": "Use 'the' with adjectives like 'poor' to refer to the entire social group.",
       "ruleId": "definite-adjectives-groups",
       "difficulty": "advanced"
     },
@@ -285,7 +284,7 @@
       "id": 36,
       "sentence": "She can play ___ piano very well.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with musical instruments.",
+      "explanation": "Use 'the' with musical instruments when talking about playing them.",
       "ruleId": "definite-inventions-instruments-species",
       "difficulty": "advanced"
     },
@@ -293,7 +292,7 @@
       "id": 37,
       "sentence": "___ internet has transformed communication.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with inventions.",
+      "explanation": "Use 'the' with major inventions like the internet.",
       "ruleId": "definite-inventions-instruments-species",
       "difficulty": "advanced"
     },
@@ -301,39 +300,39 @@
       "id": 38,
       "sentence": "___ tiger is an endangered species.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with species to refer to the whole group.",
+      "explanation": "Use 'the' with species names to refer to the whole group or species.",
       "ruleId": "definite-inventions-instruments-species",
       "difficulty": "advanced"
     },
     {
       "id": 39,
-      "sentence": "I’ll be back in ___ minute.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' to mean 'one minute'.",
+      "sentence": "I'll be back in ___ minute.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a' to mean 'one minute' in quantity.",
       "ruleId": "indefinite-one",
       "difficulty": "intermediate"
     },
     {
       "id": 40,
-      "sentence": "It was ___ shame we couldn’t go.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' in fixed phrases like 'a shame' meaning 'one instance of'.",
+      "sentence": "She gave me ___ apple from her lunch.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'an' to mean 'one apple' in quantity. Use 'an' because 'apple' starts with a vowel sound.",
       "ruleId": "indefinite-one",
       "difficulty": "intermediate"
     },
     {
       "id": 41,
-      "sentence": "This is ___ first time I’ve tried sushi.",
+      "sentence": "This is ___ first time I've tried sushi.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with ordinals like 'first.'",
+      "explanation": "Use 'the' with ordinal numbers like 'first'.",
       "ruleId": "definite-ordinals-sequence",
       "difficulty": "intermediate"
     },
     {
       "id": 42,
-      "sentence": "We’ll talk about it ___ next day.",
+      "sentence": "We'll talk about it ___ next day.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with sequence words like 'next.'",
+      "explanation": "Use 'the' with sequence words like 'next'.",
       "ruleId": "definite-ordinals-sequence",
       "difficulty": "intermediate"
     },
@@ -341,7 +340,7 @@
       "id": 43,
       "sentence": "___ Netherlands is famous for windmills and canals.",
       "correctAnswer": "the",
-      "explanation": "Plural country names or official state names require 'the.'",
+      "explanation": "Plural country names or countries with political descriptions require 'the'.",
       "ruleId": "definite-countries-regions",
       "difficulty": "advanced"
     },
@@ -349,7 +348,7 @@
       "id": 44,
       "sentence": "He moved to ___ Middle East for work.",
       "correctAnswer": "the",
-      "explanation": "Regions like 'the Middle East' require 'the.'",
+      "explanation": "Regions like 'the Middle East' always require 'the'.",
       "ruleId": "definite-countries-regions",
       "difficulty": "advanced"
     },
@@ -357,7 +356,7 @@
       "id": 45,
       "sentence": "___ Renaissance produced many great artists.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with historical periods.",
+      "explanation": "Use 'the' with historical periods and cultural movements.",
       "ruleId": "definite-historical-events",
       "difficulty": "advanced"
     },
@@ -365,7 +364,7 @@
       "id": 46,
       "sentence": "Millions died in ___ Second World War.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with wars and major events.",
+      "explanation": "Use 'the' with wars and major historical events.",
       "ruleId": "definite-historical-events",
       "difficulty": "advanced"
     },
@@ -373,7 +372,7 @@
       "id": 47,
       "sentence": "She speaks ___ Spanish fluently.",
       "correctAnswer": "nothing",
-      "explanation": "No article with languages.",
+      "explanation": "No article needed with language names.",
       "ruleId": "no-article-meals-languages-subjects",
       "difficulty": "intermediate"
     },
@@ -381,7 +380,7 @@
       "id": 48,
       "sentence": "We had ___ dinner at a small restaurant.",
       "correctAnswer": "nothing",
-      "explanation": "No article with meals in general, unless specified ('The dinner we had was amazing').",
+      "explanation": "No article with meals when used generally. (But 'The dinner we had was delicious' uses 'the' for a specific meal.)",
       "ruleId": "no-article-meals-languages-subjects",
       "difficulty": "intermediate"
     },
@@ -389,31 +388,30 @@
       "id": 49,
       "sentence": "He studies ___ physics at university.",
       "correctAnswer": "nothing",
-      "explanation": "No article with school subjects.",
+      "explanation": "No article needed with academic subjects.",
       "ruleId": "no-article-meals-languages-subjects",
       "difficulty": "intermediate"
     },
     {
       "id": 50,
-      "sentence": "A child saw ___ tiger in the zoo.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' when generalizing with a singular representative example.",
-      "ruleId": "indefinite-first-mention",
+      "sentence": "___ elephant is the largest land animal.",
+      "correctAnswer": "the",
+      "explanation": "Use 'the' with species names to represent the entire species.",
+      "ruleId": "definite-inventions-instruments-species",
       "difficulty": "advanced"
     },
-
     {
       "id": 51,
-      "sentence": "She had ___ idea that he was planning a surprise.",
-      "correctAnswer": "no",
-      "explanation": "Fixed phrase 'no idea' means she didn’t know at all.",
-      "ruleId": "fixed-phrases",
+      "sentence": "I had no ___ about his surprise party.",
+      "correctAnswer": "nothing",
+      "explanation": "In phrases like 'no idea,' we use no article to emphasize complete absence of knowledge.",
+      "ruleId": "no-article-general",
       "difficulty": "intermediate"
     },
     {
       "id": 52,
       "sentence": "I had ___ dream about flying last night.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a' to describe one instance of a dream.",
       "ruleId": "indefinite-one",
       "difficulty": "beginner"
@@ -422,7 +420,7 @@
       "id": 53,
       "sentence": "They live in ___ United States.",
       "correctAnswer": "the",
-      "explanation": "Countries with plural or union names require 'the'.",
+      "explanation": "Countries with union or plural names require 'the'.",
       "ruleId": "definite-countries-regions",
       "difficulty": "advanced"
     },
@@ -430,7 +428,7 @@
       "id": 54,
       "sentence": "He plays ___ guitar beautifully.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with musical instruments.",
+      "explanation": "Use 'the' with musical instruments when talking about playing them.",
       "ruleId": "definite-inventions-instruments-species",
       "difficulty": "intermediate"
     },
@@ -445,47 +443,47 @@
     {
       "id": 56,
       "sentence": "He drank ___ water after the run.",
-      "correctAnswer": "some",
-      "explanation": "Use 'some' for unspecified quantity of uncountable nouns.",
-      "ruleId": "indefinite-some",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when talking about water in general.",
+      "ruleId": "no-article-general",
       "difficulty": "intermediate"
     },
     {
       "id": 57,
-      "sentence": "She didn’t buy ___ apples at the market.",
-      "correctAnswer": "any",
-      "explanation": "Use 'any' in negatives with plurals or uncountables.",
-      "ruleId": "indefinite-any",
+      "sentence": "Do you have ___ apples at home?",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' (meaning 'any') when asking about an unspecified quantity in questions.",
+      "ruleId": "indefinite-first-mention",
       "difficulty": "intermediate"
     },
     {
       "id": 58,
-      "sentence": "There isn’t ___ milk left in the fridge.",
-      "correctAnswer": "any",
-      "explanation": "Use 'any' in negatives with uncountable nouns.",
-      "ruleId": "indefinite-any",
+      "sentence": "There isn't ___ milk left in the fridge.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with uncountable nouns.",
+      "ruleId": "indefinite-first-mention",
       "difficulty": "intermediate"
     },
     {
       "id": 59,
       "sentence": "Would you like ___ tea?",
-      "correctAnswer": "some",
-      "explanation": "Use 'some' in offers and requests with uncountables.",
-      "ruleId": "indefinite-some",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed when offering uncountable nouns in general.",
+      "ruleId": "no-article-general",
       "difficulty": "intermediate"
     },
     {
       "id": 60,
       "sentence": "___ Prime Minister gave a speech yesterday.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with unique official positions.",
+      "explanation": "Use 'the' with unique official positions in government.",
       "ruleId": "definite-unique",
       "difficulty": "advanced"
     },
     {
       "id": 61,
       "sentence": "She is ___ expert in her field.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' before professions or roles; 'an' because 'expert' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
@@ -494,14 +492,14 @@
       "id": 62,
       "sentence": "___ Mount Everest is the tallest mountain.",
       "correctAnswer": "nothing",
-      "explanation": "No 'the' with single mountains, unless it's a range.",
+      "explanation": "No article with individual mountain names.",
       "ruleId": "no-article-proper-nouns",
       "difficulty": "advanced"
     },
     {
       "id": 63,
       "sentence": "She was reading ___ old book by the fire.",
-      "correctAnswer": "an",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a/an' when first introducing; 'an' because 'old' begins with a vowel sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
@@ -517,7 +515,7 @@
     {
       "id": 65,
       "sentence": "She was tired after ___ long journey.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a' to describe one instance of a long journey.",
       "ruleId": "indefinite-one",
       "difficulty": "beginner"
@@ -526,7 +524,7 @@
       "id": 66,
       "sentence": "___ moon looks beautiful tonight.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' for unique objects like the moon.",
+      "explanation": "Use 'the' for unique celestial objects like the moon.",
       "ruleId": "definite-unique",
       "difficulty": "beginner"
     },
@@ -534,7 +532,7 @@
       "id": 67,
       "sentence": "Do you play ___ chess?",
       "correctAnswer": "nothing",
-      "explanation": "No article with names of games.",
+      "explanation": "No article with names of games and sports.",
       "ruleId": "no-article-meals-languages-subjects",
       "difficulty": "beginner"
     },
@@ -542,7 +540,7 @@
       "id": 68,
       "sentence": "___ Sahara is the largest hot desert.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with desert names.",
+      "explanation": "Use 'the' with desert names and other major geographic features.",
       "ruleId": "definite-geographic",
       "difficulty": "advanced"
     },
@@ -550,46 +548,46 @@
       "id": 69,
       "sentence": "She studied ___ mathematics at university.",
       "correctAnswer": "nothing",
-      "explanation": "No article with school subjects.",
+      "explanation": "No article with academic subjects.",
       "ruleId": "no-article-meals-languages-subjects",
       "difficulty": "intermediate"
     },
     {
       "id": 70,
-      "sentence": "He’s one of ___ smartest students in class.",
+      "sentence": "He's one of ___ smartest students in class.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with superlatives.",
+      "explanation": "Use 'the' with superlatives like 'smartest'.",
       "ruleId": "definite-superlatives",
       "difficulty": "intermediate"
     },
     {
       "id": 71,
       "sentence": "She asked for ___ advice about her career.",
-      "correctAnswer": "some",
-      "explanation": "Use 'some' with uncountable nouns in positive contexts.",
-      "ruleId": "indefinite-some",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed with uncountable nouns like 'advice' when used generally.",
+      "ruleId": "no-article-general",
       "difficulty": "intermediate"
     },
     {
       "id": 72,
-      "sentence": "There aren’t ___ chairs in the room.",
-      "correctAnswer": "any",
-      "explanation": "Use 'any' in negatives with plurals.",
-      "ruleId": "indefinite-any",
+      "sentence": "There aren't ___ chairs in the room.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns.",
+      "ruleId": "indefinite-first-mention",
       "difficulty": "intermediate"
     },
     {
       "id": 73,
       "sentence": "___ French Revolution changed European history.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with famous historical events.",
+      "explanation": "Use 'the' with famous historical events and revolutions.",
       "ruleId": "definite-historical-events",
       "difficulty": "advanced"
     },
     {
       "id": 74,
       "sentence": "She looked at me with ___ smile.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a' when mentioning one instance of a smile.",
       "ruleId": "indefinite-one",
       "difficulty": "beginner"
@@ -598,15 +596,15 @@
       "id": 75,
       "sentence": "___ Mount Fuji is in Japan.",
       "correctAnswer": "nothing",
-      "explanation": "Single mountain names don’t take 'the'.",
+      "explanation": "Individual mountain names don't take articles.",
       "ruleId": "no-article-proper-nouns",
       "difficulty": "advanced"
     },
     {
       "id": 76,
       "sentence": "He wrote ___ email to his professor.",
-      "correctAnswer": "an",
-      "explanation": "Use 'a/an' when introducing; 'an' because 'email' starts with a vowel sound.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' when introducing something new; 'an' because 'email' starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
     },
@@ -614,7 +612,7 @@
       "id": 77,
       "sentence": "___ government passed a new law.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' when referring to a specific country’s government.",
+      "explanation": "Use 'the' when referring to a specific country's government.",
       "ruleId": "definite-unique",
       "difficulty": "advanced"
     },
@@ -622,23 +620,23 @@
       "id": 78,
       "sentence": "___ Black Sea lies between Europe and Asia.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with seas.",
+      "explanation": "Use 'the' with sea names.",
       "ruleId": "definite-geographic",
       "difficulty": "advanced"
     },
     {
       "id": 79,
       "sentence": "___ Everest is the highest mountain in the world.",
-      "correctAnswer": "Mount",
-      "explanation": "Proper name 'Mount Everest' needs no article.",
+      "correctAnswer": "nothing",
+      "explanation": "Individual mountain names like 'Mount Everest' or just 'Everest' take no article.",
       "ruleId": "no-article-proper-nouns",
       "difficulty": "advanced"
     },
     {
       "id": 80,
       "sentence": "She heard ___ noise outside the house.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' when first mentioning something unknown.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a' when first mentioning something unknown or unspecified.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
     },
@@ -646,15 +644,15 @@
       "id": 81,
       "sentence": "The children are playing in ___ garden.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' when both speaker and listener know the place.",
+      "explanation": "Use 'the' when both speaker and listener know which specific place is meant.",
       "ruleId": "definite-specific",
       "difficulty": "beginner"
     },
     {
       "id": 82,
       "sentence": "She is ___ artist known worldwide.",
-      "correctAnswer": "an",
-      "explanation": "Use 'a/an' with professions; 'an' before vowel sound.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' with professions; 'an' before vowel sound in 'artist'.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
     },
@@ -662,47 +660,47 @@
       "id": 83,
       "sentence": "We went to ___ cinema last night.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with public places when referring to a specific one.",
+      "explanation": "Use 'the' with entertainment venues when referring to a specific one in the area.",
       "ruleId": "definite-specific",
       "difficulty": "beginner"
     },
     {
       "id": 84,
       "sentence": "He had ___ little money left.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' in fixed phrase 'a little' meaning some.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a' in the fixed phrase 'a little' meaning 'some small amount'.",
       "ruleId": "indefinite-one",
       "difficulty": "intermediate"
     },
     {
       "id": 85,
-      "sentence": "She doesn’t have ___ friends in the city.",
-      "correctAnswer": "any",
-      "explanation": "Use 'any' in negative with plurals.",
-      "ruleId": "indefinite-any",
+      "sentence": "She doesn't have ___ friends in the city.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns.",
+      "ruleId": "indefinite-first-mention",
       "difficulty": "intermediate"
     },
     {
       "id": 86,
       "sentence": "I need ___ information before making a decision.",
-      "correctAnswer": "some",
-      "explanation": "Use 'some' with uncountable nouns.",
-      "ruleId": "indefinite-some",
+      "correctAnswer": "nothing",
+      "explanation": "No article needed with uncountable nouns like 'information' when used generally.",
+      "ruleId": "no-article-general",
       "difficulty": "intermediate"
     },
     {
       "id": 87,
       "sentence": "___ United Kingdom consists of four countries.",
       "correctAnswer": "the",
-      "explanation": "Countries with political unions take 'the'.",
+      "explanation": "Countries with political union names take 'the'.",
       "ruleId": "definite-countries-regions",
       "difficulty": "advanced"
     },
     {
       "id": 88,
       "sentence": "She went to ___ university in Paris.",
-      "correctAnswer": "a",
-      "explanation": "Use 'a' for an unspecified institution.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a' for an unspecified institution among many possibilities.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
     },
@@ -710,7 +708,7 @@
       "id": 89,
       "sentence": "We visited ___ Louvre while in France.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with famous buildings and museums.",
+      "explanation": "Use 'the' with famous buildings, museums, and landmarks.",
       "ruleId": "definite-specific",
       "difficulty": "advanced"
     },
@@ -718,7 +716,7 @@
       "id": 90,
       "sentence": "They went to ___ church every Sunday.",
       "correctAnswer": "nothing",
-      "explanation": "No article when used for primary purpose (worship).",
+      "explanation": "No article when institutions are used for their primary purpose (worship).",
       "ruleId": "no-article-institutions",
       "difficulty": "intermediate"
     },
@@ -726,7 +724,7 @@
       "id": 91,
       "sentence": "He left for ___ work early in the morning.",
       "correctAnswer": "nothing",
-      "explanation": "No article with 'work' when used generally.",
+      "explanation": "No article with 'work' when referring to employment in general.",
       "ruleId": "no-article-institutions",
       "difficulty": "intermediate"
     },
@@ -734,7 +732,7 @@
       "id": 92,
       "sentence": "We stayed at ___ Ritz Hotel in London.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with hotel names.",
+      "explanation": "Use 'the' with hotel names that include 'Hotel' in the name.",
       "ruleId": "definite-specific",
       "difficulty": "advanced"
     },
@@ -742,23 +740,23 @@
       "id": 93,
       "sentence": "She is ___ most intelligent person I know.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with superlatives.",
+      "explanation": "Use 'the' with superlatives like 'most intelligent'.",
       "ruleId": "definite-superlatives",
       "difficulty": "intermediate"
     },
     {
       "id": 94,
       "sentence": "He wants to become ___ engineer.",
-      "correctAnswer": "an",
-      "explanation": "Use 'a/an' with professions; 'an' before vowel sound.",
+      "correctAnswer": "a/an",
+      "explanation": "Use 'a/an' with professions; 'an' because 'engineer' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
       "difficulty": "beginner"
     },
     {
       "id": 95,
       "sentence": "They climbed ___ Everest last year.",
-      "correctAnswer": "Mount",
-      "explanation": "Use 'Mount Everest' with no article.",
+      "correctAnswer": "nothing",
+      "explanation": "Individual mountain names take no article.",
       "ruleId": "no-article-proper-nouns",
       "difficulty": "advanced"
     },
@@ -773,16 +771,16 @@
     {
       "id": 97,
       "sentence": "She has ___ brother and two sisters.",
-      "correctAnswer": "a",
+      "correctAnswer": "a/an",
       "explanation": "Use 'a' when mentioning one family member for the first time.",
       "ruleId": "indefinite-first-mention",
       "difficulty": "beginner"
     },
     {
       "id": 98,
-      "sentence": "We’re going on holiday in ___ summer.",
+      "sentence": "We're going on holiday in ___ summer.",
       "correctAnswer": "the",
-      "explanation": "Use 'the' with seasons when referring generally.",
+      "explanation": "Use 'the' with seasons when referring to a specific time.",
       "ruleId": "definite-specific",
       "difficulty": "intermediate"
     },
@@ -790,7 +788,7 @@
       "id": 99,
       "sentence": "She usually goes to ___ bed at 10 p.m.",
       "correctAnswer": "nothing",
-      "explanation": "No article with 'bed' when used for its function.",
+      "explanation": "No article with 'bed' when used for its function (sleeping).",
       "ruleId": "no-article-institutions",
       "difficulty": "intermediate"
     },
@@ -805,360 +803,160 @@
     {
       "id": 101,
       "sentence": "I'm in ___ hurry, so I can't talk right now.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'in a hurry'.",
+      "correctAnswer": "a/an",
+      "explanation": "This is a common expression: 'in a hurry'.",
       "ruleId": "common-expression-a",
       "difficulty": "intermediate"
     },
     {
       "id": 102,
       "sentence": "He works hard to make ___ living for his family.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'make a living'.",
+      "correctAnswer": "a/an",
+      "explanation": "This is a common expression: 'make a living'.",
       "ruleId": "common-expression-a",
       "difficulty": "intermediate"
     },
     {
       "id": 103,
       "sentence": "Let's take ___ break and continue later.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'take a break'.",
+      "correctAnswer": "a/an",
+      "explanation": "This is a common expression: 'take a break'.",
       "ruleId": "common-expression-a",
       "difficulty": "intermediate"
     },
     {
       "id": 104,
       "sentence": "We had ___ good time at the party last night.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'have a good time'.",
+      "correctAnswer": "a/an",
+      "explanation": "This is a common expression: 'have a good time'.",
       "ruleId": "common-expression-a",
       "difficulty": "intermediate"
     },
     {
       "id": 105,
-      "sentence": "I'm at ___ loss about what to do next.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'at a loss'.",
-      "ruleId": "common-expression-a",
+      "sentence": "I usually listen to music in ___ morning.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression: 'in the morning'.",
+      "ruleId": "common-expression-the",
       "difficulty": "intermediate"
     },
     {
       "id": 106,
-      "sentence": "As ___ result of the rain, the match was cancelled.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'as a result'.",
-      "ruleId": "common-expression-a",
+      "sentence": "I heard the news on ___ radio this morning.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression: 'on the radio'.",
+      "ruleId": "common-expression-the",
       "difficulty": "intermediate"
     },
     {
       "id": 107,
-      "sentence": "I'll be away for ___ while, maybe two weeks.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'for a while'.",
-      "ruleId": "common-expression-a",
+      "sentence": "By ___ way, have you seen my keys anywhere?",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression: 'by the way'.",
+      "ruleId": "common-expression-the",
       "difficulty": "intermediate"
     },
     {
       "id": 108,
-      "sentence": "Once in ___ while, I like to treat myself to something nice.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'once in a while'.",
-      "ruleId": "common-expression-a",
+      "sentence": "In ___ end, everything worked out perfectly.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression: 'in the end'.",
+      "ruleId": "common-expression-the",
       "difficulty": "intermediate"
     },
     {
       "id": 109,
-      "sentence": "Your support can make ___ difference in their lives.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'make a difference'.",
-      "ruleId": "common-expression-a",
+      "sentence": "You should always tell ___ truth.",
+      "correctAnswer": "the",
+      "explanation": "This is a common expression: 'tell the truth'.",
+      "ruleId": "common-expression-the",
       "difficulty": "intermediate"
     },
     {
       "id": 110,
-      "sentence": "Please have ___ seat and wait for the doctor.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'have a seat'.",
-      "ruleId": "common-expression-a",
+      "sentence": "I prefer to work at ___ home.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'at home'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 111,
-      "sentence": "I think I'm going to catch ___ cold if I don't wear a jacket.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'catch a cold'.",
-      "ruleId": "common-expression-a",
+      "sentence": "Every morning I go to ___ work by bus.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'go to work'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 112,
-      "sentence": "I need to take ___ shower before going out.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'take a shower'.",
-      "ruleId": "common-expression-a",
+      "sentence": "I usually travel by ___ car.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'by car'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 113,
-      "sentence": "Can you have ___ look at this document for me?",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'have a look'.",
-      "ruleId": "common-expression-a",
+      "sentence": "She's still at ___ school.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'at school' (as a student).",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 114,
-      "sentence": "Could you give me ___ hand with these boxes?",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'give a hand'.",
-      "ruleId": "common-expression-a",
+      "sentence": "We like to watch ___ TV in the evening.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'watch TV'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 115,
-      "sentence": "I'm tired, I think I'll take ___ nap.",
-      "correctAnswer": "a",
-      "explanation": "This is a common expression that must be memorized: 'take a nap'.",
-      "ruleId": "common-expression-a",
+      "sentence": "My son loves to play ___ football.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'play football'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 116,
-      "sentence": "I usually listen to music in ___ morning.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'in the morning'.",
-      "ruleId": "common-expression-the",
+      "sentence": "I always have ___ breakfast before work.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'have breakfast'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 117,
-      "sentence": "I heard the news on ___ radio this morning.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'on the radio'.",
-      "ruleId": "common-expression-the",
+      "sentence": "She loves to go ___ shopping on weekends.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'go shopping'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 118,
-      "sentence": "At ___ moment, I'm too busy to help you.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'at the moment'.",
-      "ruleId": "common-expression-the",
+      "sentence": "The city is beautiful at ___ night.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'at night'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 119,
-      "sentence": "For ___ time being, we'll have to wait.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'for the time being'.",
-      "ruleId": "common-expression-the",
+      "sentence": "I need to lose ___ weight before summer.",
+      "correctAnswer": "nothing",
+      "explanation": "This is a common expression: 'lose weight'.",
+      "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     },
     {
       "id": 120,
-      "sentence": "By ___ way, have you seen my keys anywhere?",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'by the way'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 121,
-      "sentence": "I like chocolate, but on ___ other hand, it's not very healthy.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'on the other hand'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 122,
-      "sentence": "In ___ end, everything worked out perfectly.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'in the end'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 123,
-      "sentence": "At ___ beginning of the movie, I was confused.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'at the beginning'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 124,
-      "sentence": "You should always tell ___ truth, even when it's difficult.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'tell the truth'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 125,
-      "sentence": "I need to make ___ bed before leaving the house.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'make the bed'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 126,
-      "sentence": "After dinner, I usually do ___ dishes.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'do the dishes'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 127,
-      "sentence": "At ___ same time, we were both thinking the same thing.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'at the same time'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 128,
-      "sentence": "The accident happened in ___ middle of the night.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'in the middle of'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 129,
-      "sentence": "On ___ whole, I think the project was successful.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'on the whole'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 130,
-      "sentence": "I saw him at the store ___ other day.",
-      "correctAnswer": "the",
-      "explanation": "This is a common expression that must be memorized: 'the other day'.",
-      "ruleId": "common-expression-the",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 131,
-      "sentence": "I prefer to work at ___ home rather than in the office.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'at home'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 132,
-      "sentence": "Every morning I go to ___ work by bus.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'go to work'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 133,
-      "sentence": "I usually travel by ___ car when going long distances.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'by car'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 134,
-      "sentence": "She's still at ___ school, studying for her exams.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'at school'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 135,
-      "sentence": "The children are already in ___ bed.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'in bed'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 136,
-      "sentence": "We like to watch ___ TV together in the evening.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'watch TV'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 137,
-      "sentence": "My son loves to play ___ football with his friends.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'play football'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 138,
-      "sentence": "I always have ___ breakfast before going to work.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'have breakfast'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 139,
-      "sentence": "She loves to go ___ shopping on weekends.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'go shopping'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 140,
-      "sentence": "I met him by ___ accident at the coffee shop.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'by accident'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 141,
-      "sentence": "I prefer to travel on ___ foot when the weather is nice.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'on foot'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 142,
-      "sentence": "The city is beautiful at ___ night.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'at night'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 143,
-      "sentence": "She learned the entire poem by ___ heart.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'by heart'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 144,
-      "sentence": "I need to lose ___ weight before my wedding.",
-      "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'lose weight'.",
-      "ruleId": "common-expression-no-article",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": 145,
       "sentence": "The old building could catch ___ fire easily.",
       "correctAnswer": "nothing",
-      "explanation": "This is a common expression that must be memorized: 'catch fire'.",
+      "explanation": "This is a common expression: 'catch fire'.",
       "ruleId": "common-expression-no-article",
       "difficulty": "intermediate"
     }

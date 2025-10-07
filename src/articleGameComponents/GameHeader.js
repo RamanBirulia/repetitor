@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const GameHeader = ({ score, progress, currentMode, currentQuestion }) => {
+const GameHeader = ({ progress, currentMode, currentQuestion }) => {
   const navigate = useNavigate();
 
   const navigateToRule = (ruleId) => {
@@ -21,10 +21,7 @@ const GameHeader = ({ score, progress, currentMode, currentQuestion }) => {
 
           <div className="flex items-center space-x-6">
             <div className="text-sm text-gray-600">
-              {progress.type}: {progress.current} of {progress.total}
-            </div>
-            <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-              Score: {score}
+              Question: {progress.current} of {progress.total}
             </div>
             {currentMode === "error" && (
               <div className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">

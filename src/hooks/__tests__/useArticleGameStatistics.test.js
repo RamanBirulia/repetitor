@@ -11,16 +11,9 @@ const localStorageMock = {
   setItem: jest.fn(),
   removeItem: jest.fn(),
   clear: jest.fn(),
-  keys: jest.fn(() => []),
 };
 Object.defineProperty(global, "localStorage", {
   value: localStorageMock,
-  writable: true,
-});
-
-// Mock Object.keys for localStorage
-Object.defineProperty(Object, "keys", {
-  value: jest.fn(() => []),
   writable: true,
 });
 
@@ -53,619 +46,290 @@ describe("useArticleGameStatistics", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     localStorageMock.getItem.mockReturnValue(null);
-    Object.keys.mockReturnValue([]);
     gameSentencesUtils.getGameSentences.mockReturnValue(mockSentences);
-    gameSentencesUtils.isAnswerCorrect.mockImplementation(
-      (sentence, answer) => sentence.correctAnswer === answer,
-    );
-    gameSentencesUtils.getCorrectAnswerDisplay.mockImplementation((answer) => {
-      switch (answer) {
-        case "nothing":
-          return "NO ARTICLE";
-        case "a/an":
-          return "A / AN";
-        case "the":
-          return "THE";
-        default:
-          return answer.toUpperCase();
-      }
-    });
   });
 
   describe("Initialization", () => {
-    test("should initialize with default values when no localStorage data", () => {
+    test("should initialize with article-specific configuration", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
-      expect(result.current.articleGameResult.isLoading).toBe(false);
-      expect(result.current.articleGameResult.isCompleted).toBe(false);
-      expect(result.current.articleGameResult.score).toBe(0);
-      expect(result.current.articleGameResult.cursor).toBe(1);
-      expect(result.current.articleGameResult.currentQuestion).toEqual(
-        mockSentences[0],
-      );
+      expect(result.current.isLoading).toBe(false);
+      expect(result.current.totalQuestions).toBe(3);
+      expect(result.current.possibleAnswers).toEqual([
+        "a/an",
+        "the",
+        "nothing",
+      ]);
     });
 
-    test("should load saved data from localStorage", () => {
-      const savedData = {
-        cursor: 2,
-        score: 25,
-        wrongAnswersMap: [{ id: 1, successRepetitions: 0 }],
-        currentMode: "regular",
-        gameCompleted: false,
-      };
-      localStorageMock.getItem.mockReturnValue(JSON.stringify(savedData));
+    test("should load questions from gameSentencesUtils", () => {
+      renderHook(() => useArticleGameStatistics());
 
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.score).toBe(25);
-      expect(result.current.articleGameResult.cursor).toBe(2);
-      expect(result.current.articleGameResult.currentQuestion).toEqual(
-        mockSentences[1],
-      );
+      expect(gameSentencesUtils.getGameSentences).toHaveBeenCalled();
     });
 
-    test("should handle localStorage parsing errors gracefully", () => {
-      localStorageMock.getItem.mockReturnValue("invalid json");
-      console.error = jest.fn();
+    test("should handle empty questions gracefully", () => {
+      gameSentencesUtils.getGameSentences.mockReturnValue([]);
 
       const { result } = renderHook(() => useArticleGameStatistics());
 
-      expect(console.error).toHaveBeenCalledWith(
-        "Error loading game statistics:",
-        expect.any(Error),
-      );
-      expect(result.current.articleGameResult.score).toBe(0);
+      expect(result.current.totalQuestions).toBe(0);
+      expect(result.current.currentQuestionState.currentQuestion).toBe(null);
     });
   });
 
-  describe("Answer handling", () => {
-    test("should handle correct answer on first attempt", () => {
+  describe("State Structure", () => {
+    test("should provide structured state objects", () => {
+      const { result } = renderHook(() => useArticleGameStatistics());
+
+      expect(result.current.progressState).toHaveProperty("cursor");
+      expect(result.current.progressState).toHaveProperty("mode");
+      expect(result.current.progressState).toHaveProperty("shuffledQuestions");
+      expect(result.current.progressState).toHaveProperty("progressPercentage");
+      expect(result.current.progressState).toHaveProperty("isCompleted");
+
+      expect(result.current.currentQuestionState).toHaveProperty(
+        "currentQuestion",
+      );
+      expect(result.current.currentQuestionState).toHaveProperty(
+        "selectedAnswers",
+      );
+      expect(result.current.currentQuestionState).toHaveProperty("isCompleted");
+      expect(result.current.currentQuestionState).toHaveProperty("isCorrect");
+
+      expect(result.current.errorState).toHaveProperty("errors");
+      expect(result.current.errorState).toHaveProperty("errorCursor");
+    });
+
+    test("should provide current question", () => {
+      const { result } = renderHook(() => useArticleGameStatistics());
+
+      expect(result.current.currentQuestionState.currentQuestion).toEqual(
+        expect.objectContaining({
+          id: expect.any(Number),
+          sentence: expect.any(String),
+          correctAnswer: expect.any(String),
+          ruleId: expect.any(Number),
+          explanation: expect.any(String),
+        }),
+      );
+    });
+  });
+
+  describe("Answer Handling", () => {
+    test("should handle correct answer", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       act(() => {
         result.current.answerWith("a/an");
       });
 
-      expect(result.current.articleGameResult.isCorrect).toBe(true);
-      expect(result.current.articleGameResult.score).toBe(10);
-      expect(result.current.articleGameResult.attempts).toBe(1);
-      expect(result.current.articleGameResult.showResult).toBe(true);
+      expect(result.current.currentQuestionState.isCorrect).toBe(true);
+      expect(result.current.currentQuestionState.isCompleted).toBe(true);
+      expect(result.current.currentQuestionState.selectedAnswers).toEqual([
+        "a/an",
+      ]);
     });
 
-    test("should handle wrong answer on first attempt", () => {
+    test("should handle incorrect answer", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       act(() => {
         result.current.answerWith("the");
       });
 
-      expect(result.current.articleGameResult.isCorrect).toBe(false);
-      expect(result.current.articleGameResult.score).toBe(0);
-      expect(result.current.articleGameResult.attempts).toBe(1);
-      expect(result.current.articleGameResult.failedOptions).toContain("the");
-      expect(result.current.articleGameResult.canRetry).toBe(true);
+      expect(result.current.currentQuestionState.isCorrect).toBe(false);
+      expect(result.current.currentQuestionState.isCompleted).toBe(false);
+      expect(result.current.currentQuestionState.selectedAnswers).toEqual([
+        "the",
+      ]);
     });
 
-    test("should allow retry after first wrong answer", () => {
+    test("should allow retry after wrong answer", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
-      // First wrong attempt
+      // First wrong answer
       act(() => {
         result.current.answerWith("the");
       });
 
-      // Second attempt with correct answer
+      expect(result.current.currentQuestionState.isCompleted).toBe(false);
+
+      // Correct answer on retry
       act(() => {
         result.current.answerWith("a/an");
       });
 
-      expect(result.current.articleGameResult.isCorrect).toBe(true);
-      expect(result.current.articleGameResult.score).toBe(5); // Partial credit
-      expect(result.current.articleGameResult.attempts).toBe(2);
-    });
-
-    test("should prevent selecting already failed options", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // First wrong attempt
-      act(() => {
-        result.current.answerWith("the");
-      });
-
-      const attemptsBefore = result.current.articleGameResult.attempts;
-
-      // Try to select same wrong answer again
-      act(() => {
-        result.current.answerWith("the");
-      });
-
-      expect(result.current.articleGameResult.attempts).toBe(attemptsBefore);
-    });
-
-    test("should add question to wrong answers map after exhausting attempts", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // Two wrong attempts
-      act(() => {
-        result.current.answerWith("the");
-      });
-      act(() => {
-        result.current.answerWith("nothing");
-      });
-
-      expect(result.current.articleGameResult.wrongAnswersMap.length).toBe(1);
-      expect(result.current.articleGameResult.wrongAnswersMap[0].id).toBe(1);
+      expect(result.current.currentQuestionState.isCorrect).toBe(true);
+      expect(result.current.currentQuestionState.isCompleted).toBe(true);
+      expect(result.current.currentQuestionState.selectedAnswers).toEqual([
+        "the",
+        "a/an",
+      ]);
     });
   });
 
-  describe("Question progression", () => {
-    test("should advance cursor on correct answer", () => {
+  describe("Question Progression", () => {
+    test("should advance to next question after correct answer", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
+
+      const initialQuestion =
+        result.current.currentQuestionState.currentQuestion;
 
       act(() => {
         result.current.answerWith("a/an");
-      });
-      act(() => {
         result.current.startNextQuestion();
       });
 
-      expect(result.current.articleGameResult.cursor).toBe(2);
-      expect(result.current.articleGameResult.currentQuestion).toEqual(
-        mockSentences[1],
+      expect(result.current.progressState.cursor).toBe(1);
+      expect(result.current.currentQuestionState.currentQuestion).not.toEqual(
+        initialQuestion,
       );
-      expect(result.current.articleGameResult.attempts).toBe(0);
-      expect(result.current.articleGameResult.showResult).toBe(false);
+      expect(result.current.currentQuestionState.selectedAnswers).toHaveLength(
+        0,
+      );
+      expect(result.current.currentQuestionState.isCompleted).toBe(false);
     });
 
-    test("should not advance cursor on wrong answer", () => {
+    test("should add wrong answers to error state", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       act(() => {
         result.current.answerWith("the");
-      });
-      act(() => {
         result.current.answerWith("nothing");
       });
-      act(() => {
-        result.current.startNextQuestion();
+
+      expect(result.current.currentQuestionState.isCompleted).toBe(true);
+      expect(result.current.errorState.errors).toHaveLength(1);
+      expect(result.current.errorState.errors[0]).toEqual({
+        id: 1,
+        correctCount: 0,
       });
-
-      expect(result.current.articleGameResult.cursor).toBe(1);
-      expect(result.current.articleGameResult.currentQuestion).toEqual(
-        mockSentences[0],
-      );
-    });
-
-    test("should skip question and add to wrong answers", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-      const initialWrongAnswersCount =
-        result.current.articleGameResult.wrongAnswersMap.length;
-
-      act(() => {
-        result.current.skipQuestion();
-      });
-
-      expect(result.current.articleGameResult.wrongAnswersMap.length).toBe(
-        initialWrongAnswersCount + 1,
-      );
-      expect(result.current.articleGameResult.attempts).toBe(0);
     });
   });
 
-  describe("Error mode handling", () => {
-    test("should switch to error mode after 5 regular questions with errors", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // Add some wrong answers and advance regular question counter
-      act(() => {
-        result.current.answerWith("the"); // wrong
-        result.current.answerWith("nothing"); // wrong
-        result.current.startNextQuestion();
-      });
-
-      // Simulate 5 regular questions completed
-      act(() => {
-        // Manually set regular question counter for testing
-        for (let i = 0; i < 4; i++) {
-          result.current.answerWith("a/an"); // correct answers
-          result.current.startNextQuestion();
-        }
-      });
-
-      // After 5th question, should switch to error mode if there are wrong answers
-      expect(result.current.articleGameResult.currentMode).toBe("error");
-    });
-
-    test("should return to regular mode after 2 error questions", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // Set up error mode with wrong answers
-      act(() => {
-        result.current.answerWith("the");
-        result.current.answerWith("nothing");
-        result.current.startNextQuestion();
-      });
-
-      // Simulate being in error mode and completing 2 error questions
-      // This would require more complex setup, but the logic is there
-    });
-  });
-
-  describe("Game completion", () => {
-    test("should mark game as completed when all questions done and no errors", () => {
+  describe("Game Completion", () => {
+    test("should detect game completion", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       // Answer all questions correctly
-      for (let i = 0; i < mockSentences.length; i++) {
+      mockSentences.forEach((sentence, index) => {
         act(() => {
-          result.current.answerWith(mockSentences[i].correctAnswer);
-          result.current.startNextQuestion();
+          result.current.answerWith(sentence.correctAnswer);
+          if (index < mockSentences.length - 1) {
+            result.current.startNextQuestion();
+          }
         });
-      }
-
-      expect(result.current.articleGameResult.isCompleted).toBe(true);
-    });
-
-    test("should provide completion statistics", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.completionStats).toEqual({
-        questionsCompleted: 0,
-        errorsRemaining: 0,
-        totalFailures: 0,
-        finalScore: 0,
       });
+
+      expect(result.current.progressState.isCompleted).toBe(true);
     });
   });
 
-  describe("Game reset", () => {
-    test("should reset all game state", () => {
+  describe("Game Reset", () => {
+    test("should reset all state", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       // Make some progress
       act(() => {
-        result.current.answerWith("the"); // wrong
+        result.current.answerWith("the");
         result.current.startNextQuestion();
       });
 
-      // Reset game
+      // Reset
       act(() => {
         result.current.resetGame();
       });
 
-      expect(result.current.articleGameResult.score).toBe(0);
-      expect(result.current.articleGameResult.cursor).toBe(1);
-      expect(result.current.articleGameResult.wrongAnswersMap.length).toBe(0);
-      expect(result.current.articleGameResult.attempts).toBe(0);
-      expect(result.current.articleGameResult.isCompleted).toBe(false);
+      expect(result.current.progressState.cursor).toBe(0);
+      expect(result.current.progressState.mode).toBe("regular");
+      expect(result.current.errorState.errors).toHaveLength(0);
+      expect(result.current.currentQuestionState.selectedAnswers).toHaveLength(
+        0,
+      );
+      expect(result.current.currentQuestionState.isCompleted).toBe(false);
     });
 
-    test("should clear localStorage data", () => {
+    test("should clear localStorage on reset", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
 
       act(() => {
-        result.current.clearStoredStatistics();
+        result.current.resetGame();
       });
 
       expect(localStorageMock.removeItem).toHaveBeenCalledWith(
-        "article_game_statistics",
+        "article_game_progress_state",
       );
-    });
-  });
-
-  describe("localStorage persistence", () => {
-    test("should save statistics to localStorage on state changes", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      act(() => {
-        result.current.answerWith("a/an");
-      });
-
-      expect(localStorageMock.setItem).toHaveBeenCalledWith(
-        "article_game_statistics",
-        expect.stringContaining('"score":10'),
-      );
-    });
-
-    test("should handle localStorage save errors gracefully", () => {
-      localStorageMock.setItem.mockImplementation(() => {
-        throw new Error("Storage full");
-      });
-      console.error = jest.fn();
-
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      act(() => {
-        result.current.answerWith("a/an");
-      });
-
-      expect(console.error).toHaveBeenCalledWith(
-        "Error saving game statistics:",
-        expect.any(Error),
-      );
-    });
-  });
-
-  describe("Article options", () => {
-    test("should provide article options with correct styling", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      const options = result.current.articleGameResult.articleOptions;
-
-      expect(options).toHaveLength(3);
-      expect(options[0]).toEqual({
-        value: "a/an",
-        label: "A / AN",
-        className: "article-button",
-        disabled: false,
-      });
-    });
-
-    test("should mark failed options correctly", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      act(() => {
-        result.current.answerWith("the"); // wrong answer
-      });
-
-      const theOption = result.current.articleGameResult.articleOptions.find(
-        (opt) => opt.value === "the",
-      );
-      expect(theOption.className).toBe("article-button failed");
-      expect(theOption.disabled).toBe(true);
-    });
-  });
-
-  describe("Progress calculation", () => {
-    test("should calculate progress correctly in regular mode", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.progress).toEqual({
-        current: 1,
-        total: 3,
-        type: "Main Progress",
-      });
-      expect(result.current.articleGameResult.progressPercentage).toBe(33);
-    });
-
-    test("should calculate progress correctly in error mode", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // This would need setup to get into error mode
-      // For now, just test the structure
-      expect(result.current.articleGameResult.progress).toHaveProperty(
-        "current",
-      );
-      expect(result.current.articleGameResult.progress).toHaveProperty("total");
-      expect(result.current.articleGameResult.progress).toHaveProperty("type");
-    });
-  });
-
-  describe("UI helpers", () => {
-    test("should provide correct next button text", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.nextButtonText).toBe(
-        "Next Question →",
-      );
-    });
-
-    test("should indicate when user can proceed", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.canProceed).toBe(false);
-
-      act(() => {
-        result.current.answerWith("a/an");
-      });
-
-      expect(result.current.articleGameResult.canProceed).toBe(true);
-    });
-
-    test("should indicate when to show correct answer", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.shouldShowCorrectAnswer).toBe(
-        false,
-      );
-
-      act(() => {
-        result.current.answerWith("a/an"); // correct
-      });
-
-      expect(result.current.articleGameResult.shouldShowCorrectAnswer).toBe(
-        true,
-      );
-    });
-  });
-
-  describe("Answer state localStorage persistence", () => {
-    test("should save answer state to localStorage when answering", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      act(() => {
-        result.current.answerWith("the"); // wrong answer
-      });
-
-      expect(localStorageMock.setItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_1",
-        expect.stringContaining('"selectedAnswer":"the"'),
-      );
-      expect(localStorageMock.setItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_1",
-        expect.stringContaining('"attempts":1'),
-      );
-    });
-
-    test("should load answer state from localStorage on question change", () => {
-      // Mock stored answer state
-      const storedAnswerState = {
-        selectedAnswer: "the",
-        attempts: 1,
-        isCorrect: false,
-        showResult: false,
-        failedOptions: ["the"],
-        questionId: "regular_1",
-        timestamp: new Date().toISOString(),
-      };
-
-      localStorageMock.getItem.mockImplementation((key) => {
-        if (key === "article_game_answer_state_regular_1") {
-          return JSON.stringify(storedAnswerState);
-        }
-        return null;
-      });
-
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.selectedAnswer).toBe("the");
-      expect(result.current.articleGameResult.attempts).toBe(1);
-      expect(result.current.articleGameResult.isCorrect).toBe(false);
-      expect(result.current.articleGameResult.failedOptions).toContain("the");
-    });
-
-    test("should clear answer state when moving to next question", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // Answer question and move to next
-      act(() => {
-        result.current.answerWith("a/an"); // correct
-      });
-      act(() => {
-        result.current.startNextQuestion();
-      });
-
       expect(localStorageMock.removeItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_1",
+        "article_game_answer_state",
+      );
+      expect(localStorageMock.removeItem).toHaveBeenCalledWith(
+        "article_game_error_state",
       );
     });
+  });
 
-    test("should clear answer state when skipping question", () => {
+  describe("Skip Question", () => {
+    test("should skip current question", () => {
       const { result } = renderHook(() => useArticleGameStatistics());
+
+      const initialQuestion =
+        result.current.currentQuestionState.currentQuestion;
 
       act(() => {
         result.current.skipQuestion();
       });
 
-      expect(localStorageMock.removeItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_1",
+      // After skip, should have moved to next question
+      expect(result.current.currentQuestionState.currentQuestion).not.toEqual(
+        initialQuestion,
       );
+      expect(result.current.progressState.cursor).toBe(1);
     });
+  });
 
-    test("should clear all answer states when resetting game", () => {
-      Object.keys.mockReturnValue([
-        "article_game_answer_state_regular_1",
-        "article_game_answer_state_regular_2",
-        "other_key",
-      ]);
-
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      act(() => {
-        result.current.resetGame();
-      });
-
-      expect(localStorageMock.removeItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_1",
-      );
-      expect(localStorageMock.removeItem).toHaveBeenCalledWith(
-        "article_game_answer_state_regular_2",
-      );
-      expect(localStorageMock.removeItem).not.toHaveBeenCalledWith("other_key");
-    });
-
-    test("should handle localStorage errors gracefully when loading answer state", () => {
+  describe("Error Handling", () => {
+    test("should handle localStorage errors gracefully", () => {
       localStorageMock.getItem.mockImplementation(() => {
         throw new Error("Storage error");
       });
-      console.error = jest.fn();
 
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(console.error).toHaveBeenCalledWith(
-        "Error loading answer state:",
-        expect.any(Error),
-      );
-      expect(result.current.articleGameResult.selectedAnswer).toBe(null);
-    });
-
-    test("should provide debug information about answer states", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      expect(result.current.articleGameResult.debugInfo).toHaveProperty(
-        "currentQuestionId",
-      );
-      expect(result.current.articleGameResult.debugInfo).toHaveProperty(
-        "hasStoredAnswerState",
-      );
-      expect(result.current.articleGameResult.debugInfo).toHaveProperty(
-        "answerStateCount",
-      );
-    });
-
-    test("should provide utility method to get stored answer states", () => {
-      Object.keys.mockReturnValue([
-        "article_game_answer_state_regular_1",
-        "article_game_answer_state_error_2",
-        "other_key",
-      ]);
-
-      localStorageMock.getItem.mockImplementation((key) => {
-        if (key.startsWith("article_game_answer_state_")) {
-          return JSON.stringify({ selectedAnswer: "test", attempts: 1 });
-        }
-        return null;
-      });
-
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      const storedStates = result.current.getStoredAnswerStates();
-      expect(storedStates).toHaveLength(2);
-      expect(storedStates[0]).toHaveProperty("selectedAnswer", "test");
-    });
-
-    test("should provide method to clear current question answer state", () => {
-      const { result } = renderHook(() => useArticleGameStatistics());
-
-      // Set some answer state first
-      act(() => {
-        result.current.answerWith("the");
-      });
-
-      // Clear it
-      act(() => {
-        result.current.clearAnswerStateForCurrentQuestion();
-      });
-
-      expect(result.current.articleGameResult.selectedAnswer).toBe(null);
-      expect(result.current.articleGameResult.attempts).toBe(0);
-      expect(result.current.articleGameResult.failedOptions).toHaveLength(0);
-    });
-
-    test("should clean up old answer states periodically", () => {
-      // Mock many old answer states
-      const manyKeys = Array.from(
-        { length: 120 },
-        (_, i) => `article_game_answer_state_regular_${i}`,
-      );
-      Object.keys.mockReturnValue(manyKeys);
-
-      localStorageMock.getItem.mockImplementation((key) => {
-        if (key.startsWith("article_game_answer_state_")) {
-          return JSON.stringify({
-            selectedAnswer: "test",
-            timestamp: new Date(
-              Date.now() - Math.random() * 1000000,
-            ).toISOString(),
-          });
-        }
-        return null;
-      });
+      const consoleSpy = jest.spyOn(console, "error").mockImplementation();
 
       renderHook(() => useArticleGameStatistics());
 
-      // Should remove oldest states, keeping only 100
-      expect(localStorageMock.removeItem).toHaveBeenCalledTimes(20);
+      expect(consoleSpy).toHaveBeenCalled();
+      consoleSpy.mockRestore();
+    });
+
+    test("should handle getGameSentences errors", () => {
+      gameSentencesUtils.getGameSentences.mockImplementation(() => {
+        throw new Error("Failed to load sentences");
+      });
+
+      const consoleSpy = jest.spyOn(console, "error").mockImplementation();
+
+      const { result } = renderHook(() => useArticleGameStatistics());
+
+      expect(result.current.totalQuestions).toBe(0);
+      expect(consoleSpy).toHaveBeenCalledWith(
+        "Error loading game sentences:",
+        expect.any(Error),
+      );
+      consoleSpy.mockRestore();
+    });
+  });
+
+  describe("Debug Utilities", () => {
+    test("should provide debug state getters", () => {
+      const { result } = renderHook(() => useArticleGameStatistics());
+
+      expect(typeof result.current.getProgressState).toBe("function");
+      expect(typeof result.current.getCurrentQuestionState).toBe("function");
+      expect(typeof result.current.getErrorState).toBe("function");
+
+      const progressState = result.current.getProgressState();
+      expect(progressState).toEqual(result.current.progressState);
     });
   });
 });

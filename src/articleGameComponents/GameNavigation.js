@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 const GameNavigation = ({
   canProceed,
   canRetry,
-  nextButtonText,
   showResult,
   isCorrect,
-  startNextQuestion
+  startNextQuestion,
 }) => {
   const navigate = useNavigate();
 
@@ -22,7 +21,7 @@ const GameNavigation = ({
 
         {canProceed ? (
           <button onClick={startNextQuestion} className="btn-primary">
-            {nextButtonText}
+            Next question
           </button>
         ) : showResult && !isCorrect && canRetry ? (
           <div className="text-blue-600 text-sm flex items-center">

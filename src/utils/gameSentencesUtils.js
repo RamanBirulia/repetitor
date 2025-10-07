@@ -135,6 +135,15 @@ export const getCorrectAnswerDisplay = (correctAnswer) => {
   }
 };
 
+export const getCorrectArticleText = (correctAnswer) => {
+  switch (correctAnswer) {
+    case "nothing":
+      return ""; // No article
+    default:
+      return correctAnswer.toLowerCase();
+  }
+};
+
 // Get available difficulty levels for sentences
 export const getSentenceDifficultyLevels = () => {
   return [

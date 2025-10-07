@@ -163,8 +163,8 @@
   "metadata": {
     "lastUpdated": "2024-01-01",
     "contentVersion": "1.0.0",
-    "totalRules": 8,
-    "totalSentences": 30,
-    "supportedArticles": ["a", "an", "the", "nothing"]
+    "totalRules": 20,
+    "totalSentences": 120,
+    "supportedArticles": ["a/an", "the", "nothing"]
   }
 }

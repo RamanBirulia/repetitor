@@ -6,11 +6,11 @@ import DebugButton from "../articleGameComponents/DebugButton";
 import {
   isCommonExpression,
   getCommonExpressionIcon,
+  getCorrectArticleText,
 } from "../utils/gameSentencesUtils";
 import {
   GameHeader,
   GameProgressBar,
-  ErrorStatusCard,
   AnswerOptions,
   ResultMessage,
   GameNavigation,
@@ -19,59 +19,115 @@ import {
 } from "../articleGameComponents";
 
 const ArticleGame = () => {
-  const { answerWith, startNextQuestion, resetGame, articleGameResult } =
-    useArticleGameStatistics();
+  const {
+    answerWith,
+    startNextQuestion,
+    resetGame,
+    progressState,
+    currentQuestionState,
+    errorState,
+    possibleAnswers,
+    isLoading,
+    totalQuestions,
+  } = useArticleGameStatistics();
 
   const { isDebugVisible, closeDebugPanel } = useDebugPanel();
 
   // Show loading screen while initializing
-  if (articleGameResult.isLoading) {
+  if (isLoading) {
     return <LoadingScreen />;
   }
 
   // Show completion screen when game is finished
-  if (articleGameResult.isCompleted) {
+  if (progressState.isCompleted) {
+    const completionStats = {
+      questionsCompleted: Math.max(
+        0,
+        progressState.cursor - errorState.errors.length,
+      ),
+      errorsRemaining: errorState.errors.length,
+      totalFailures: errorState.errors.length,
+      finalScore:
+        Math.max(0, progressState.cursor - errorState.errors.length) * 10,
+    };
+
     return (
       <GameCompletedScreen
-        completionStats={articleGameResult.completionStats}
+        completionStats={completionStats}
         resetGame={resetGame}
       />
     );
   }
 
+  // Get current question based on progress state
+  const currentQuestion = currentQuestionState.currentQuestion;
+
+  // Calculate derived values for UI
+  const progress = {
+    current: progressState.cursor,
+    total: totalQuestions,
+    completed: Math.max(0, progressState.cursor - errorState.errors.length),
+  };
+
+  const attempts = currentQuestionState.selectedAnswers.length;
+  const maxAttempts = currentQuestionState.maxAttempts || 2;
+  const showResult =
+    attempts === currentQuestionState.maxAttempt ||
+    currentQuestionState.isCorrect;
+  const canRetry = !currentQuestionState.isCompleted && attempts < maxAttempts;
+  const canProceed = currentQuestionState.isCompleted;
+  const shouldShowCorrectAnswer = currentQuestionState.isCompleted;
+  const selectedAnswer =
+    currentQuestionState.selectedAnswers[
+      currentQuestionState.selectedAnswers.length - 1
+    ] || null;
+
+  // Transform possibleAnswers into articleOptions format
+  const articleOptions = possibleAnswers.map((answer) => {
+    const failedAnswers = currentQuestionState.selectedAnswers.filter(
+      (selectedAnswer) => selectedAnswer !== currentQuestion?.correctAnswer,
+    );
+    const hasFailed = failedAnswers.includes(answer);
+    const isDisabled = currentQuestionState.isCompleted;
+
+    let className = "article-button";
+    if (hasFailed) {
+      className += " failed";
+    }
+    if (isDisabled) {
+      className += " disabled";
+    }
+
+    return {
+      value: answer,
+      label: answer === "nothing" ? "no article" : answer,
+      className,
+      disabled: isDisabled,
+    };
+  });
+
   return (
     <div className="min-h-screen">
       {/* Header */}
       <GameHeader
-        score={articleGameResult.score}
-        progress={articleGameResult.progress}
-        currentMode={articleGameResult.currentMode}
-        currentQuestion={articleGameResult.currentQuestion}
+        progress={progress}
+        currentMode={progressState.mode}
+        currentQuestion={currentQuestion}
       />
 
       {/* Main Game Area */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Progress Bar */}
         <GameProgressBar
-          progress={articleGameResult.progress}
-          progressPercentage={articleGameResult.progressPercentage}
-          currentMode={articleGameResult.currentMode}
-        />
-
-        {/* Error Status */}
-        <ErrorStatusCard
-          wrongAnswersMap={articleGameResult.wrongAnswersMap}
-          currentMode={articleGameResult.currentMode}
-          regularQuestionCounter={articleGameResult.progress.current}
-          cursor={articleGameResult.cursor}
-          totalSentences={articleGameResult.progress.total}
-          errorQuestionCounter={0} // This could be exposed from the hook if needed
+          progress={progress}
+          progressPercentage={progressState.progressPercentage}
+          currentMode={progressState.mode}
         />
 
         {/* Game Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-slide-up">
           {/* Question Type Indicator */}
-          {articleGameResult.currentMode === "error" && (
+          {progressState.mode === "error" && (
             <div className="mb-4 text-center">
               <span className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
                 🔄 Error Review Question
@@ -80,13 +136,13 @@ const ArticleGame = () => {
           )}
 
           {/* Sentence */}
-          {articleGameResult.currentQuestion && (
+          {currentQuestion && currentQuestion.sentence && (
             <div className="text-center mb-12">
               {/* Common Expression Indicator */}
-              {isCommonExpression(articleGameResult.currentQuestion) && (
+              {isCommonExpression(currentQuestion) && (
                 <div className="mb-4 flex justify-center items-center">
                   <span className="inline-flex items-center bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
-                    {getCommonExpressionIcon(articleGameResult.currentQuestion)}
+                    {getCommonExpressionIcon(currentQuestion)}
                     <span className="ml-1">
                       Common Expression - Learn by Heart
                     </span>
@@ -95,56 +151,65 @@ const ArticleGame = () => {
               )}
 
               <h2 className="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed">
-                {articleGameResult.currentQuestion.sentence
-                  .split("___")
-                  .map((part, index) => (
-                    <span key={index}>
-                      {part}
-                      {index <
-                        articleGameResult.currentQuestion.sentence.split("___")
-                          .length -
-                          1 && (
+                {currentQuestion.sentence.split("___").map((part, index) => (
+                  <span key={index}>
+                    {part}
+                    {index < currentQuestion.sentence.split("___").length - 1 &&
+                      (shouldShowCorrectAnswer ? (
+                        <span className="inline-block mx-2 px-4 py-1 bg-green-100 border-2 border-green-300 rounded-lg text-green-800 font-semibold">
+                          {getCorrectArticleText(
+                            currentQuestion.correctAnswer,
+                          ) || "_"}
+                        </span>
+                      ) : (
                         <span className="inline-block mx-2 px-4 py-1 bg-yellow-100 border-2 border-yellow-300 rounded-lg text-yellow-800 font-semibold">
                           ___
                         </span>
-                      )}
-                    </span>
-                  ))}
+                      ))}
+                  </span>
+                ))}
               </h2>
             </div>
           )}
 
           <AnswerOptions
-            articleOptions={articleGameResult.articleOptions}
+            articleOptions={articleOptions}
             answerWith={answerWith}
-            attempts={articleGameResult.attempts}
-            isCorrect={articleGameResult.isCorrect}
+            attempts={attempts}
+            isCorrect={currentQuestionState.isCorrect}
+            selectedAnswer={selectedAnswer}
+            currentQuestion={currentQuestion}
+            maxAttempts={maxAttempts}
           />
 
           {/* Result Message */}
           <ResultMessage
-            showResult={articleGameResult.showResult}
-            isCorrect={articleGameResult.isCorrect}
-            currentQuestion={articleGameResult.currentQuestion}
-            shouldShowCorrectAnswer={articleGameResult.shouldShowCorrectAnswer}
-            canRetry={articleGameResult.canRetry}
+            showResult={showResult}
+            isCorrect={currentQuestionState.isCorrect}
+            currentQuestion={currentQuestion}
+            shouldShowCorrectAnswer={shouldShowCorrectAnswer}
+            canRetry={canRetry}
           />
         </div>
 
         {/* Navigation */}
         <GameNavigation
-          canProceed={articleGameResult.canProceed}
-          canRetry={articleGameResult.canRetry}
-          nextButtonText={articleGameResult.nextButtonText}
-          showResult={articleGameResult.showResult}
-          isCorrect={articleGameResult.isCorrect}
+          canProceed={canProceed}
+          canRetry={canRetry}
+          showResult={showResult}
+          isCorrect={currentQuestionState.isCorrect}
           startNextQuestion={startNextQuestion}
         />
       </main>
 
       {/* Debug Panel */}
       <DebugPanel
-        articleGameResult={articleGameResult}
+        progressState={progressState}
+        currentQuestionState={currentQuestionState}
+        errorState={errorState}
+        possibleAnswers={possibleAnswers}
+        isLoading={isLoading}
+        totalQuestions={totalQuestions}
         isVisible={isDebugVisible}
         onClose={closeDebugPanel}
       />
