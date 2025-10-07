@@ -2,6 +2,34 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { getCorrectAnswerDisplay } from "../utils/gameSentencesUtils";
 
+// Utility function to style any text in single quotes with Slack-like bordered rectangles
+const formatExplanationText = (text) => {
+  if (!text) return text;
+
+  // Split on single quotes and process pairs
+  const parts = text.split("'");
+  const result = [];
+
+  for (let i = 0; i < parts.length; i++) {
+    if (i % 2 === 0) {
+      // Regular text (outside quotes)
+      result.push(parts[i]);
+    } else {
+      // Text inside quotes - style it
+      result.push(
+        <span
+          key={i}
+          className="text-base font-semibold inline-block mx-1 px-2 py-0.5 bg-blue-50 border border-gray-300 rounded font-mono text-blue-600 shadow-sm"
+        >
+          {parts[i]}
+        </span>,
+      );
+    }
+  }
+
+  return result;
+};
+
 const ResultMessage = ({
   showResult,
   isCorrect,
@@ -42,7 +70,7 @@ const ResultMessage = ({
           isCorrect ? "text-green-600" : "text-red-600"
         }`}
       >
-        {currentQuestion.explanation}
+        {formatExplanationText(currentQuestion.explanation)}
       </p>
 
       <div className="mt-6 text-center">
