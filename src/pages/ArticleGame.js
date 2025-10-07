@@ -72,7 +72,7 @@ const ArticleGame = () => {
   const attempts = currentQuestionState.selectedAnswers.length;
   const maxAttempts = currentQuestionState.maxAttempts || 2;
   const showResult =
-    attempts === currentQuestionState.maxAttempt ||
+    attempts === currentQuestionState.maxAttempts ||
     currentQuestionState.isCorrect;
   const canRetry = !currentQuestionState.isCompleted && attempts < maxAttempts;
   const canProceed = currentQuestionState.isCompleted;
