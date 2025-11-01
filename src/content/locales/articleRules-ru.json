@@ -1,0 +1,300 @@
+{
+  "articleRules": [
+    {
+      "id": "definite-specific",
+      "title": "Определенный артикль \"THE\" - Конкретные предметы",
+      "category": "definite",
+      "description": "Используйте \"the\", когда говорите о чем-то конкретном, о чем знают и говорящий, и слушающий.",
+      "examples": [
+        "The book on the table is mine.",
+        "The car in the garage needs repair.",
+        "The teacher you mentioned is very kind."
+      ],
+      "explanation": "Когда мы используем \"the\", мы предполагаем, что слушатель точно знает, о каком предмете мы говорим. Это может быть потому, что о нем упоминали раньше, его видно, или он уникален в контексте.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-unique",
+      "title": "Определенный артикль \"THE\" - Уникальные предметы",
+      "category": "definite",
+      "description": "Используйте \"the\" с вещами, которые уникальны или единственные в своем роде.",
+      "examples": [
+        "The sun is shining brightly.",
+        "The moon looks beautiful tonight.",
+        "The President announced new policies."
+      ],
+      "explanation": "Некоторые вещи по природе уникальны - есть только одно солнце, одна луна, один президент страны в данное время. Они всегда требуют \"the\".",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-superlatives",
+      "title": "Определенный артикль \"THE\" - Превосходная степень",
+      "category": "definite",
+      "description": "Всегда используйте \"the\" перед прилагательными в превосходной степени.",
+      "examples": [
+        "She is the smartest student in class.",
+        "This is the most expensive car.",
+        "He ran the fastest in the race."
+      ],
+      "explanation": "Превосходная степень (best, worst, most beautiful и т.д.) описывает крайность качества, делая существительное уникальным, поэтому всегда нужно \"the\".",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "indefinite-first-mention",
+      "title": "Неопределенные артикли \"A/AN\" - Первое упоминание",
+      "category": "indefinite",
+      "description": "Используйте \"a\" или \"an\", когда упоминаете что-то впервые или когда не важно, какой именно предмет.",
+      "examples": [
+        "I saw a dog in the park.",
+        "She bought an apple at the store.",
+        "He needs a new computer.",
+        "It was an honest mistake."
+      ],
+      "explanation": "Когда мы вводим что-то новое в разговор или когда подойдет любой пример этой вещи, мы используем \"a\" или \"an\". Используйте \"a\" перед согласными звуками и \"an\" перед гласными звуками. Помните: важен звук, а не буква - \"an hour\" против \"a university\".",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "indefinite-jobs-professions",
+      "title": "Неопределенные артикли \"A/AN\" - Работа и профессии",
+      "category": "indefinite",
+      "description": "Используйте \"a\" или \"an\", когда говорите о чьей-то работе или профессии.",
+      "examples": [
+        "She is a teacher.",
+        "He wants to become an engineer.",
+        "My father is a doctor.",
+        "I am an artist."
+      ],
+      "explanation": "Когда описываем, кем кто-то работает, мы используем неопределенный артикль, потому что есть много людей с этой профессией. Используйте \"a\" перед согласными звуками и \"an\" перед гласными звуками.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-general",
+      "title": "Без артикля - Общие утверждения",
+      "category": "zero",
+      "description": "Не используйте артикли при общих утверждениях о неисчисляемых существительных или исчисляемых существительных во множественном числе.",
+      "examples": [
+        "Water is essential for life.",
+        "Dogs are loyal animals.",
+        "Music makes people happy."
+      ],
+      "explanation": "Когда говорим о вещах в общем (не о конкретных примерах), мы часто не используем артикли. Это применимо к неисчисляемым существительным (water, music) и исчисляемым существительным во множественном числе (dogs, people).",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "no-article-proper-nouns",
+      "title": "Без артикля - Имена собственные",
+      "category": "zero",
+      "description": "Большинство имен собственных (имена людей, места и т.д.) не используют артикли.",
+      "examples": [
+        "London is a beautiful city.",
+        "Mary works at Microsoft.",
+        "I study at Harvard University."
+      ],
+      "explanation": "Имена людей, большинство городов, стран, компаний и университетов не нуждаются в артиклях, потому что они уже конкретны по своей природе.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-geographic",
+      "title": "Определенный артикль \"THE\" - Географические объекты",
+      "category": "definite",
+      "description": "Используйте \"the\" с океанами, морями, реками, горными хребтами и группами островов.",
+      "examples": [
+        "The Pacific Ocean is huge.",
+        "The Nile River flows through Egypt.",
+        "The Himalayas are the highest mountains."
+      ],
+      "explanation": "Определенные географические объекты традиционно требуют \"the\", особенно водоемы, горные хребты и группы островов. Однако отдельные горы и озера обычно не требуют.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-second-mention",
+      "title": "Определенный артикль \"THE\" - Повторное упоминание",
+      "category": "definite",
+      "description": "Используйте \"the\", когда ссылаетесь на что-то, что уже было представлено с \"a\" или \"an\".",
+      "examples": [
+        "I saw a man outside. The man was wearing a hat.",
+        "She bought a book. The book was expensive."
+      ],
+      "explanation": "Первое упоминание = \"a/an\", потому что это новое. Повторное упоминание = \"the\", потому что теперь это конкретно и известно как говорящему, так и слушающему.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-institutions",
+      "title": "Без артикля - Учреждения и общественные места",
+      "category": "zero",
+      "description": "Не используйте артикли с определенными учреждениями, когда говорите об их основной функции.",
+      "examples": [
+        "She's in hospital. (as a patient)",
+        "He's at school. (as a student)",
+        "They go to bed early."
+      ],
+      "explanation": "Когда учреждение используется по прямому назначению (например, hospital = медицинская помощь, school = образование, bed = сон), артикль не используется. Если вы говорите о здании как таковом, нужен \"the\": \"I went to the hospital to visit a friend.\"",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-adjectives-groups",
+      "title": "Определенный артикль \"THE\" - Группы с прилагательными",
+      "category": "definite",
+      "description": "Используйте \"the\" перед прилагательными для обозначения целой группы людей.",
+      "examples": [
+        "The poor need support.",
+        "The elderly require special care.",
+        "The unemployed are struggling."
+      ],
+      "explanation": "\"The\" + прилагательное может обозначать целую социальную группу (rich, poor, young, old и т.д.).",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-inventions-instruments-species",
+      "title": "Определенный артикль \"THE\" - Изобретения, инструменты, виды",
+      "category": "definite",
+      "description": "Используйте \"the\" с изобретениями, музыкальными инструментами и видами в общих утверждениях.",
+      "examples": [
+        "The telephone changed the world.",
+        "She plays the piano.",
+        "The tiger is an endangered species."
+      ],
+      "explanation": "Мы используем \"the\" для изобретений (the internet, the steam engine), для музыкальных инструментов и для видов в целом.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "indefinite-one",
+      "title": "Неопределенные артикли \"A/AN\" - В значении \"один\"",
+      "category": "indefinite",
+      "description": "Используйте \"a/an\" в значении \"один\" по количеству.",
+      "examples": [
+        "I need a minute to think. (= one minute)",
+        "She gave me an apple. (= one apple)"
+      ],
+      "explanation": "Иногда \"a/an\" просто означает \"один\", не акцентируя внимание на конкретности.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-ordinals-sequence",
+      "title": "Определенный артикль \"THE\" - Порядковые числительные и последовательность",
+      "category": "definite",
+      "description": "Используйте \"the\" с порядковыми числительными и выражениями последовательности.",
+      "examples": [
+        "The first time we met was in Paris.",
+        "The next chapter is more difficult.",
+        "The last question was tricky."
+      ],
+      "explanation": "Порядковые числительные (first, second, next, last) обычно требуют \"the\".",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-countries-regions",
+      "title": "Определенный артикль \"THE\" - Страны и регионы",
+      "category": "definite",
+      "description": "Используйте \"the\" со странами, которые стоят во множественном числе или включают слова типа \"kingdom\", \"states\" или \"republic\". Также используйте с регионами.",
+      "examples": [
+        "The Netherlands is a low-lying country.",
+        "The United States is large.",
+        "The Middle East is very hot."
+      ],
+      "explanation": "Большинство стран не требуют артикля (Spain, Brazil), но множественные и официальные названия требуют (the Philippines, the United Arab Emirates). Регионы типа the Arctic, the Middle East, the Balkans также требуют \"the\".",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-historical-events",
+      "title": "Определенный артикль \"THE\" - Исторические периоды и события",
+      "category": "definite",
+      "description": "Используйте \"the\" с историческими периодами, войнами, десятилетиями и знаменитыми событиями.",
+      "examples": [
+        "The Renaissance was a cultural movement.",
+        "The Second World War began in 1939.",
+        "He loves music from the 1980s."
+      ],
+      "explanation": "Важные исторические события и временные периоды почти всегда требуют \"the\".",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "no-article-meals-languages-subjects",
+      "title": "Без артикля - Еда, языки, учебные предметы",
+      "category": "zero",
+      "description": "Не используйте артикли с приемами пищи, языками или учебными предметами, если они не уточняются.",
+      "examples": [
+        "We had lunch at noon.",
+        "She speaks French.",
+        "He studies biology."
+      ],
+      "explanation": "Приемы пищи, языки и учебные предметы не требуют артиклей в общем случае. Но можно уточнить: \"The lunch we had was delicious.\"",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-a",
+      "title": "Устойчивые выражения с \"A/AN\"",
+      "category": "common-expression",
+      "description": "Некоторые выражения с \"a/an\" нужно запомнить, так как они не подчиняются общим правилам.",
+      "examples": [
+        "in a hurry (в спешке)",
+        "make a living (зарабатывать на жизнь)",
+        "take a break (сделать перерыв)",
+        "have a good time (хорошо провести время)",
+        "at a loss (в недоумении)",
+        "as a result (в результате)",
+        "for a while (на время)",
+        "once in a while (время от времени)",
+        "make a difference (изменить ситуацию)",
+        "have a seat (садиться)",
+        "catch a cold (простудиться)",
+        "take a shower (принять душ)",
+        "have a look (взглянуть)",
+        "give a hand (помочь)",
+        "take a nap (вздремнуть)"
+      ],
+      "explanation": "Это идиоматические выражения, которые всегда используют \"a\" или \"an\". Их нужно выучить наизусть, так как они не следуют стандартным правилам артиклей.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-the",
+      "title": "Устойчивые выражения с \"THE\"",
+      "category": "common-expression",
+      "description": "Некоторые выражения с \"the\" нужно запомнить, так как они не подчиняются общим правилам.",
+      "examples": [
+        "in the morning/afternoon/evening (утром/днем/вечером)",
+        "on the radio/phone/internet (по радио/телефону/интернету)",
+        "at the moment (в данный момент)",
+        "for the time being (пока что)",
+        "by the way (кстати)",
+        "on the other hand (с другой стороны)",
+        "in the end (в конце концов)",
+        "at the beginning (в начале)",
+        "tell the truth (говорить правду)",
+        "make the bed (заправлять кровать)",
+        "do the dishes (мыть посуду)",
+        "at the same time (в то же время)",
+        "in the middle of (посередине)",
+        "on the whole (в целом)",
+        "the other day (на днях)"
+      ],
+      "explanation": "Это идиоматические выражения, которые всегда используют \"the\". Их нужно выучить наизусть, так как они не следуют стандартным правилам артиклей.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-no-article",
+      "title": "Устойчивые выражения без артикля",
+      "category": "common-expression",
+      "description": "Некоторые выражения не используют артикль и их нужно запомнить, так как они не подчиняются общим правилам.",
+      "examples": [
+        "at home (дома)",
+        "go to work (идти на работу)",
+        "by car/bus/train/plane (на машине/автобусе/поезде/самолете)",
+        "at school/university (в школе/университете)",
+        "in bed (в кровати)",
+        "watch TV (смотреть телевизор)",
+        "play football/tennis (играть в футбол/теннис)",
+        "have breakfast/lunch/dinner (завтракать/обедать/ужинать)",
+        "go shopping (идти за покупками)",
+        "by accident (случайно)",
+        "on foot (пешком)",
+        "at night (ночью)",
+        "by heart (наизусть)",
+        "lose weight (худеть)",
+        "catch fire (загореться)"
+      ],
+      "explanation": "Это идиоматические выражения, которые никогда не используют артикль. Их нужно выучить наизусть, так как они не следуют стандартным правилам артиклей.",
+      "difficulty": "intermediate"
+    }
+  ]
+}

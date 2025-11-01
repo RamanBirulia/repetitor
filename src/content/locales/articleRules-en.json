@@ -1,0 +1,300 @@
+{
+  "articleRules": [
+    {
+      "id": "definite-specific",
+      "title": "The Definite Article \"THE\" - Specific Items",
+      "category": "definite",
+      "description": "Use \"the\" when referring to something specific that both the speaker and listener know about.",
+      "examples": [
+        "The book on the table is mine.",
+        "The car in the garage needs repair.",
+        "The teacher you mentioned is very kind."
+      ],
+      "explanation": "When we use \"the,\" we assume the listener knows exactly which item we're talking about. This could be because it was mentioned before, is visible, or is unique in the context.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-unique",
+      "title": "The Definite Article \"THE\" - Unique Items",
+      "category": "definite",
+      "description": "Use \"the\" with things that are unique or one of a kind.",
+      "examples": [
+        "The sun is shining brightly.",
+        "The moon looks beautiful tonight.",
+        "The President announced new policies."
+      ],
+      "explanation": "Some things are naturally unique - there's only one sun, one moon, one president of a country at a time. These always take \"the.\"",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "definite-superlatives",
+      "title": "The Definite Article \"THE\" - Superlatives",
+      "category": "definite",
+      "description": "Always use \"the\" before superlative adjectives.",
+      "examples": [
+        "She is the smartest student in class.",
+        "This is the most expensive car.",
+        "He ran the fastest in the race."
+      ],
+      "explanation": "Superlatives (best, worst, most beautiful, etc.) describe the extreme of a quality, making the noun unique, so they always need \"the.\"",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "indefinite-first-mention",
+      "title": "Indefinite Articles \"A/AN\" - First Mention",
+      "category": "indefinite",
+      "description": "Use \"a\" or \"an\" when mentioning something for the first time or when it doesn't matter which specific one.",
+      "examples": [
+        "I saw a dog in the park.",
+        "She bought an apple at the store.",
+        "He needs a new computer.",
+        "It was an honest mistake."
+      ],
+      "explanation": "When introducing something new to the conversation or when any example of that thing will do, we use \"a\" or \"an.\" Use \"a\" before consonant sounds and \"an\" before vowel sounds. Remember: it's about the sound, not the letter - \"an hour\" vs \"a university.\"",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "indefinite-jobs-professions",
+      "title": "Indefinite Articles \"A/AN\" - Jobs and Professions",
+      "category": "indefinite",
+      "description": "Use \"a\" or \"an\" when talking about someone's job or profession.",
+      "examples": [
+        "She is a teacher.",
+        "He wants to become an engineer.",
+        "My father is a doctor.",
+        "I am an artist."
+      ],
+      "explanation": "When describing what someone does for work, we use the indefinite article because there are many people with that profession. Use \"a\" before consonant sounds and \"an\" before vowel sounds.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-general",
+      "title": "No Article - General Statements",
+      "category": "zero",
+      "description": "Don't use articles when making general statements about uncountable nouns or plural countable nouns.",
+      "examples": [
+        "Water is essential for life.",
+        "Dogs are loyal animals.",
+        "Music makes people happy."
+      ],
+      "explanation": "When talking about things in general (not specific examples), we often don't use articles. This applies to uncountable nouns (water, music) and plural countable nouns (dogs, people).",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "no-article-proper-nouns",
+      "title": "No Article - Proper Nouns",
+      "category": "zero",
+      "description": "Most proper nouns (names of people, places, etc.) don't use articles.",
+      "examples": [
+        "London is a beautiful city.",
+        "Mary works at Microsoft.",
+        "I study at Harvard University."
+      ],
+      "explanation": "Names of people, most cities, countries, companies, and universities don't need articles because they are already specific by nature.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-geographic",
+      "title": "The Definite Article \"THE\" - Geographic Features",
+      "category": "definite",
+      "description": "Use \"the\" with oceans, seas, rivers, mountain ranges, and groups of islands.",
+      "examples": [
+        "The Pacific Ocean is huge.",
+        "The Nile River flows through Egypt.",
+        "The Himalayas are the highest mountains."
+      ],
+      "explanation": "Certain geographic features traditionally take \"the,\" especially bodies of water, mountain ranges, and island groups. However, individual mountains and lakes usually don't.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-second-mention",
+      "title": "Definite Article \"THE\" - Second Mention",
+      "category": "definite",
+      "description": "Use 'the' when referring back to something already introduced with 'a' or 'an.'",
+      "examples": [
+        "I saw a man outside. The man was wearing a hat.",
+        "She bought a book. The book was expensive."
+      ],
+      "explanation": "First mention = 'a/an' because it’s new. Second mention = 'the' because it’s now specific and known to both speaker and listener.",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "no-article-institutions",
+      "title": "No Article - Institutions and Common Places",
+      "category": "zero",
+      "description": "Don't use articles with certain institutions when talking about their main function.",
+      "examples": [
+        "She’s in hospital. (as a patient)",
+        "He’s at school. (as a student)",
+        "They go to bed early."
+      ],
+      "explanation": "When the institution is being used for its primary purpose (e.g., hospital = medical care, school = education, bed = sleeping), no article is used. If you talk about the building itself, you need 'the': 'I went to the hospital to visit a friend.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-adjectives-groups",
+      "title": "The Definite Article \"THE\" - Groups with Adjectives",
+      "category": "definite",
+      "description": "Use 'the' before adjectives to represent a whole group of people.",
+      "examples": [
+        "The poor need support.",
+        "The elderly require special care.",
+        "The unemployed are struggling."
+      ],
+      "explanation": "The + adjective can represent an entire social group (rich, poor, young, old, etc.).",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-inventions-instruments-species",
+      "title": "The Definite Article \"THE\" - Inventions, Instruments, Species",
+      "category": "definite",
+      "description": "Use 'the' with inventions, musical instruments, and species in general statements.",
+      "examples": [
+        "The telephone changed the world.",
+        "She plays the piano.",
+        "The tiger is an endangered species."
+      ],
+      "explanation": "We use 'the' for inventions (the internet, the steam engine), for musical instruments, and for species as a whole.",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "indefinite-one",
+      "title": "Indefinite Articles \"A/AN\" - Meaning One",
+      "category": "indefinite",
+      "description": "Use 'a/an' to mean 'one' in quantity.",
+      "examples": [
+        "I need a minute to think. (= one minute)",
+        "She gave me an apple. (= one apple)"
+      ],
+      "explanation": "Sometimes 'a/an' simply means 'one' without focusing on specificity.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-ordinals-sequence",
+      "title": "The Definite Article \"THE\" - Ordinals and Sequence",
+      "category": "definite",
+      "description": "Use 'the' with ordinal numbers and sequence expressions.",
+      "examples": [
+        "The first time we met was in Paris.",
+        "The next chapter is more difficult.",
+        "The last question was tricky."
+      ],
+      "explanation": "Ordinal numbers (first, second, next, last) usually require 'the.'",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "definite-countries-regions",
+      "title": "The Definite Article \"THE\" - Countries and Regions",
+      "category": "definite",
+      "description": "Use 'the' with countries that are plural or include words like 'kingdom,' 'states,' or 'republic.' Also use with regions.",
+      "examples": [
+        "The Netherlands is a low-lying country.",
+        "The United States is large.",
+        "The Middle East is very hot."
+      ],
+      "explanation": "Most countries don’t take an article (Spain, Brazil), but plurals and official names do (the Philippines, the United Arab Emirates). Regions like the Arctic, the Middle East, the Balkans also require 'the.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "definite-historical-events",
+      "title": "The Definite Article \"THE\" - Historical Periods and Events",
+      "category": "definite",
+      "description": "Use 'the' with historical periods, wars, decades, and famous events.",
+      "examples": [
+        "The Renaissance was a cultural movement.",
+        "The Second World War began in 1939.",
+        "He loves music from the 1980s."
+      ],
+      "explanation": "Important historical events and time periods almost always take 'the.'",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "no-article-meals-languages-subjects",
+      "title": "No Article - Meals, Languages, Academic Subjects",
+      "category": "zero",
+      "description": "Don’t use articles with meals, languages, or school subjects unless they are specified.",
+      "examples": [
+        "We had lunch at noon.",
+        "She speaks French.",
+        "He studies biology."
+      ],
+      "explanation": "Meals, languages, and academic subjects don't take articles in general. But you can specify: 'The lunch we had was delicious.'",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-a",
+      "title": "Common Expressions with \"A/AN\"",
+      "category": "common-expression",
+      "description": "Some expressions with \"a/an\" must be memorized as they don't follow general rules.",
+      "examples": [
+        "in a hurry",
+        "make a living",
+        "take a break",
+        "have a good time",
+        "at a loss",
+        "as a result",
+        "for a while",
+        "once in a while",
+        "make a difference",
+        "have a seat",
+        "catch a cold",
+        "take a shower",
+        "have a look",
+        "give a hand",
+        "take a nap"
+      ],
+      "explanation": "These are idiomatic expressions that always use \"a\" or \"an.\" They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-the",
+      "title": "Common Expressions with \"THE\"",
+      "category": "common-expression",
+      "description": "Some expressions with \"the\" must be memorized as they don't follow general rules.",
+      "examples": [
+        "in the morning/afternoon/evening",
+        "on the radio/phone/internet",
+        "at the moment",
+        "for the time being",
+        "by the way",
+        "on the other hand",
+        "in the end",
+        "at the beginning",
+        "tell the truth",
+        "make the bed",
+        "do the dishes",
+        "at the same time",
+        "in the middle of",
+        "on the whole",
+        "the other day"
+      ],
+      "explanation": "These are idiomatic expressions that always use \"the.\" They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "common-expression-no-article",
+      "title": "Common Expressions with No Article",
+      "category": "common-expression",
+      "description": "Some expressions use no article and must be memorized as they don't follow general rules.",
+      "examples": [
+        "at home",
+        "go to work",
+        "by car/bus/train/plane",
+        "at school/university",
+        "in bed",
+        "watch TV",
+        "play football/tennis",
+        "have breakfast/lunch/dinner",
+        "go shopping",
+        "by accident",
+        "on foot",
+        "at night",
+        "by heart",
+        "lose weight",
+        "catch fire"
+      ],
+      "explanation": "These are idiomatic expressions that never use an article. They must be learned by heart as they don't follow standard article rules.",
+      "difficulty": "intermediate"
+    }
+  ]
+}
