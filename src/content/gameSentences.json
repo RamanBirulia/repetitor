@@ -75,50 +75,86 @@
     {
       "id": 10,
       "sentence": "I saw ___ interesting movie last night.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "an",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'interesting' starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 11,
       "sentence": "She bought ___ new car yesterday.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "a",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'a' because 'new' starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 12,
       "sentence": "There's ___ cat sitting on the fence.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "a",
       "explanation": "Use 'a/an' when introducing something new to the conversation. Use 'a' because 'cat' starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 13,
       "sentence": "My sister is ___ nurse at the local hospital.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "a",
       "explanation": "Use 'a/an' with professions. Use 'a' because 'nurse' starts with a consonant sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 14,
       "sentence": "He wants to become ___ architect.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "an",
       "explanation": "Use 'a/an' with professions. Use 'an' because 'architect' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 15,
       "sentence": "She works as ___ teacher in elementary school.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "a",
       "explanation": "Use 'a/an' with professions. Use 'a' because 'teacher' starts with a consonant sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 16,
@@ -203,10 +239,16 @@
     {
       "id": 26,
       "sentence": "I need to buy ___ umbrella before it rains.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "an",
       "explanation": "Use 'a/an' when mentioning something for the first time. Use 'an' because 'umbrella' starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 27,
@@ -227,10 +269,16 @@
     {
       "id": 29,
       "sentence": "My brother is ___ engineer at a tech company.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "an",
       "explanation": "Use 'a/an' with professions. Use 'an' because 'engineer' starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 30,
@@ -243,10 +291,16 @@
     {
       "id": 31,
       "sentence": "I saw ___ man outside.",
-      "correctAnswer": "a/an",
-      "explanation": "First mention uses 'a' because the man is not yet specific to the listener.",
+      "correctAnswer": "a",
+      "explanation": "First mention uses 'a' because the man is not yet specific to the listener. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 32,
@@ -307,18 +361,30 @@
     {
       "id": 39,
       "sentence": "I'll be back in ___ minute.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' to mean 'one minute' in quantity.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to mean 'one minute' in quantity. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 40,
       "sentence": "She gave me ___ apple from her lunch.",
-      "correctAnswer": "a/an",
+      "correctAnswer": "an",
       "explanation": "Use 'an' to mean 'one apple' in quantity. Use 'an' because 'apple' starts with a vowel sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 41,
@@ -411,10 +477,16 @@
     {
       "id": 52,
       "sentence": "I had ___ dream about flying last night.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' to describe one instance of a dream.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to describe one instance of a dream. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 53,
@@ -451,18 +523,30 @@
     {
       "id": 57,
       "sentence": "Do you have ___ apples at home?",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' (meaning 'any') when asking about an unspecified quantity in questions.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' (meaning 'any') when asking about an unspecified quantity in questions. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 58,
       "sentence": "There isn't ___ milk left in the fridge.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' (meaning 'any') in negative statements with uncountable nouns.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with uncountable nouns. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 59,
@@ -483,10 +567,16 @@
     {
       "id": 61,
       "sentence": "She is ___ expert in her field.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' before professions or roles; 'an' because 'expert' starts with a vowel sound.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' before professions or roles; 'an' because 'expert' starts with a vowel sound. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 62,
@@ -499,10 +589,16 @@
     {
       "id": 63,
       "sentence": "She was reading ___ old book by the fire.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' when first introducing; 'an' because 'old' begins with a vowel sound.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when first introducing; 'an' because 'old' begins with a vowel sound. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 64,
@@ -515,10 +611,16 @@
     {
       "id": 65,
       "sentence": "She was tired after ___ long journey.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' to describe one instance of a long journey.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' to describe one instance of a long journey. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 66,
@@ -571,10 +673,16 @@
     {
       "id": 72,
       "sentence": "There aren't ___ chairs in the room.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 73,
@@ -587,10 +695,16 @@
     {
       "id": 74,
       "sentence": "She looked at me with ___ smile.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' when mentioning one instance of a smile.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when mentioning one instance of a smile. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 75,
@@ -603,10 +717,16 @@
     {
       "id": 76,
       "sentence": "He wrote ___ email to his professor.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' when introducing something new; 'an' because 'email' starts with a vowel sound.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' when introducing something new; 'an' because 'email' starts with a vowel sound. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 77,
@@ -635,10 +755,16 @@
     {
       "id": 80,
       "sentence": "She heard ___ noise outside the house.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' when first mentioning something unknown or unspecified.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when first mentioning something unknown or unspecified. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 81,
@@ -651,10 +777,16 @@
     {
       "id": 82,
       "sentence": "She is ___ artist known worldwide.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' with professions; 'an' before vowel sound in 'artist'.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions; 'an' before vowel sound in 'artist'. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 83,
@@ -667,18 +799,30 @@
     {
       "id": 84,
       "sentence": "He had ___ little money left.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' in the fixed phrase 'a little' meaning 'some small amount'.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' in the fixed phrase 'a little' meaning 'some small amount'. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-one",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 85,
       "sentence": "She doesn't have ___ friends in the city.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a/an' (meaning 'any') in negative statements with plural nouns. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 86,
@@ -699,10 +843,16 @@
     {
       "id": 88,
       "sentence": "She went to ___ university in Paris.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' for an unspecified institution among many possibilities.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' for an unspecified institution among many possibilities. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 89,
@@ -747,10 +897,16 @@
     {
       "id": 94,
       "sentence": "He wants to become ___ engineer.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a/an' with professions; 'an' because 'engineer' starts with a vowel sound.",
+      "correctAnswer": "an",
+      "explanation": "Use 'a/an' with professions; 'an' because 'engineer' starts with a vowel sound. Use 'an' because the next word starts with a vowel sound.",
       "ruleId": "indefinite-jobs-professions",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 95,
@@ -771,10 +927,16 @@
     {
       "id": 97,
       "sentence": "She has ___ brother and two sisters.",
-      "correctAnswer": "a/an",
-      "explanation": "Use 'a' when mentioning one family member for the first time.",
+      "correctAnswer": "a",
+      "explanation": "Use 'a' when mentioning one family member for the first time. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "indefinite-first-mention",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 98,
@@ -803,34 +965,58 @@
     {
       "id": 101,
       "sentence": "I'm in ___ hurry, so I can't talk right now.",
-      "correctAnswer": "a/an",
-      "explanation": "This is a common expression: 'in a hurry'.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression: 'in a hurry'. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "common-expression-a",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 102,
       "sentence": "He works hard to make ___ living for his family.",
-      "correctAnswer": "a/an",
-      "explanation": "This is a common expression: 'make a living'.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression: 'make a living'. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "common-expression-a",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 103,
       "sentence": "Let's take ___ break and continue later.",
-      "correctAnswer": "a/an",
-      "explanation": "This is a common expression: 'take a break'.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression: 'take a break'. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "common-expression-a",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 104,
       "sentence": "We had ___ good time at the party last night.",
-      "correctAnswer": "a/an",
-      "explanation": "This is a common expression: 'have a good time'.",
+      "correctAnswer": "a",
+      "explanation": "This is a common expression: 'have a good time'. Use 'a' because the next word starts with a consonant sound.",
       "ruleId": "common-expression-a",
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "answerOptions": [
+        "a",
+        "an",
+        "the",
+        "nothing"
+      ]
     },
     {
       "id": 105,

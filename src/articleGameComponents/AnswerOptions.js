@@ -9,11 +9,56 @@ const AnswerOptions = ({
   currentQuestion,
   maxAttempts = 2,
 }) => {
+  // Determine which options to use - custom from question or default articleOptions
+  const optionsToUse = React.useMemo(() => {
+    // Check if current question has custom answer options
+    if (
+      currentQuestion?.answerOptions &&
+      Array.isArray(currentQuestion.answerOptions)
+    ) {
+      // Use custom options from the question
+      const failedAnswers = [];
+      if (selectedAnswer && !isCorrect) {
+        failedAnswers.push(selectedAnswer);
+      }
+
+      return currentQuestion.answerOptions.map((option) => {
+        const hasFailed = failedAnswers.includes(option);
+        const isDisabled = attempts >= maxAttempts || isCorrect === true;
+
+        let className = "article-button";
+        if (hasFailed) {
+          className += " failed";
+        }
+        if (isDisabled) {
+          className += " disabled";
+        }
+
+        return {
+          value: option,
+          label: option === "nothing" ? "no article" : option,
+          className,
+          disabled: isDisabled,
+        };
+      });
+    }
+
+    // Fall back to default articleOptions
+    return articleOptions;
+  }, [
+    currentQuestion,
+    articleOptions,
+    selectedAnswer,
+    isCorrect,
+    attempts,
+    maxAttempts,
+  ]);
+
   return (
     <div>
       {/* Answer Options */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        {articleOptions.map((option) => {
+        {optionsToUse.map((option) => {
           const isSelected = selectedAnswer === option.value;
           const isCorrectAnswer =
             currentQuestion && currentQuestion.correctAnswer === option.value;
